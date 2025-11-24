@@ -51,35 +51,45 @@
     .brand-wrap {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
 
-    .brand-logo {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      overflow: hidden;
-    }
-
-    .logo-text {
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-    }
-
-    .tagline {
-      font-size: 0.8rem;
-      opacity: 0.8;
+    .brand-logo-img {
+      height: 56px;
+      width: auto;
     }
 
     .header-social {
       font-size: 0.8rem;
       opacity: 0.9;
+      text-align: right;
     }
 
     .header-social a {
       text-decoration: underline;
+    }
+
+    /* Maker badge */
+
+    .maker-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #7e3a22;
+      margin-bottom: 10px;
+    }
+
+    .maker-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
     }
 
     /* HERO */
@@ -311,6 +321,11 @@
       text-align: center;
     }
 
+    footer a {
+      color: inherit;
+      text-decoration: underline;
+    }
+
     /* MOBILE */
 
     @media (max-width: 800px) {
@@ -320,6 +335,8 @@
       }
       .hero { padding-top: 12px; }
       header { flex-direction: column; align-items: flex-start; }
+      .header-social { text-align: left; }
+      .brand-logo-img { height: 50px; }
     }
   </style>
 </head>
@@ -328,16 +345,10 @@
   <div class="page">
     <header>
       <div class="brand-wrap">
-        <div class="brand-logo">
-          <img src="images/logo_skipseys_woodworking_400.png" alt="Skipsey's Woodworking logo">
-        </div>
-        <div>
-          <div class="logo-text">SKIPSEY'S WOODWORKING</div>
-          <div class="tagline">Handcrafted Australian Hardwood · Gold Coast</div>
-        </div>
+        <img src="images/logo_skipseys_landscape.png" alt="Skipsey's Woodworking logo" class="brand-logo-img">
       </div>
       <div class="header-social">
-        Follow along on Instagram:<br>
+        Follow Noah on Instagram:<br>
         <a href="https://www.instagram.com/skipsey_woodworking" target="_blank">@skipsey_woodworking</a>
       </div>
     </header>
@@ -345,9 +356,15 @@
     <!-- HERO -->
     <section class="hero" id="top">
       <div class="hero-copy">
-        <h1>One board you’ll reach for every day.</h1>
+
+        <div class="maker-badge">
+          <span class="maker-dot"></span>
+          <span>Made by Noah, 16</span>
+        </div>
+
+        <h1>Stop buying flimsy chopping boards.</h1>
         <p class="subtitle">
-          A solid Australian hardwood chopping board, handcrafted in small batches from reclaimed timber. Built to be used hard and last for years.
+          This is a 4.5&nbsp;kg slab of reclaimed Australian hardwood, handcrafted in small batches on the Gold Coast. It’s built to live on your bench and take every chop, slice and BBQ session you throw at it.
         </p>
 
         <div class="price-row">
@@ -445,8 +462,8 @@
               <p>Warm browns that work in almost any kitchen.</p>
             </div>
             <div class="gallery-item">
-              <img src="images/board_plain_face.jpg" alt="Plain face of hardwood chopping board" />
-              <p>The reverse side: clean face for serving and plating.</p>
+              <img src="images/board_plain_face.jpg" alt="Close-up of hardwood chopping board showing smooth surface and thickness" />
+              <p>Thick 40&nbsp;mm hardwood board with a smooth, hand-sanded finish.</p>
             </div>
           </div>
         </div>
@@ -537,7 +554,8 @@
     </section>
 
     <footer>
-      © <span id="year"></span> Skipsey's Woodworking. Handcrafted on the Gold Coast using reclaimed Australian hardwood.
+      © <span id="year"></span> Skipsey's Woodworking. Handcrafted by Noah on the Gold Coast using reclaimed Australian hardwood.
+      Follow <a href="https://www.instagram.com/skipsey_woodworking" target="_blank">@skipsey_woodworking</a> for new boards.
     </footer>
   </div>
 
