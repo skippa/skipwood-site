@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-S45N192JX9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-S45N192JX9');
-</script>
-
   <meta charset="UTF-8" />
   <title>Skipsey's Woodworking – Handcrafted Australian Hardwood Chopping Board</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Premium handcrafted Australian hardwood chopping board made from reclaimed timber. Built to last, made to be used every day. Free shipping Australia-wide. Skipsey's Woodworking, Gold Coast." />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S45N192JX9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-S45N192JX9');
+  </script>
 
   <!-- Favicon + app icons -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -123,7 +122,7 @@
       background: var(--accent);
     }
 
-    /* HERO – now flex so we can reorder on mobile */
+    /* HERO */
 
     .hero {
       display: flex;
@@ -369,9 +368,8 @@
       .hero {
         flex-direction: column;
       }
-      /* show the image first on mobile */
       .hero-image-wrap {
-        order: -1;
+        order: -1; /* show image first on mobile */
       }
       .two-col {
         grid-template-columns: 1fr;
@@ -390,8 +388,6 @@
     }
   </style>
 </head>
-
-
 
 <body>
   <div class="page">
@@ -422,12 +418,12 @@
 
         <h1>Stop buying flimsy chopping boards.</h1>
         <p class="subtitle">
-          This is a 4.5kg slab of reclaimed Australian hardwood, handcrafted in small batches on the Gold Coast. It’s built to live on your bench and take every chop, slice and BBQ session you throw at it.
+          This is a 4.5&nbsp;kg slab of reclaimed Australian hardwood, handcrafted in small batches on the Gold Coast. It’s built to live on your bench and take every chop, slice and BBQ session you throw at it.
         </p>
 
         <div class="price-row">
           <span class="price">$125</span>
-          <span class="ship-note">Free shipping Australia-wide · 500 × 300 × 40mm</span>
+          <span class="ship-note">Free shipping Australia-wide · 500 × 300 × 40&nbsp;mm</span>
         </div>
 
         <div class="hero-cta">
@@ -441,7 +437,11 @@
       </div>
 
       <div class="hero-image-wrap">
-        <img src="images/hero_board_lifestyle.jpg" alt="Skipsey's Woodworking handcrafted Australian hardwood chopping board with knife and herbs" />
+        <picture>
+          <source srcset="images/hero-mobile.jpg" media="(max-width: 800px)">
+          <img src="images/hero-desktop.jpg"
+               alt="Skipsey's Woodworking handcrafted Australian hardwood chopping board with knife and herbs">
+        </picture>
         <p class="hero-image-note">Actual board style. Grain and strip pattern vary with each piece of reclaimed timber.</p>
       </div>
     </section>
@@ -459,7 +459,7 @@
         <div>
           <ul class="bullets">
             <li>Reclaimed Australian hardwood: jarrah, spotted gum, blackbutt and friends.</li>
-            <li>40mm thick and ~4.5kg – serious weight and stability.</li>
+            <li>40&nbsp;mm thick and ~4.5&nbsp;kg – serious weight and stability.</li>
             <li>Deep juice groove to keep your bench clean for roasts and BBQ days.</li>
             <li>Food-safe mineral oil and beeswax finish – no varnish, no weird coatings.</li>
             <li>Each board is unique. Small-batch, not mass-produced.</li>
@@ -502,8 +502,8 @@
             Big enough for a full roast chicken or a serious steak session, but still easy to move, wash and store.
           </p>
           <ul class="bullets">
-            <li>Dimensions: <strong>500 × 300 × 40mm</strong> (approx.).</li>
-            <li>Weight: around <strong>4.5kg</strong> per board.</li>
+            <li>Dimensions: <strong>500 × 300 × 40 mm</strong> (approx.).</li>
+            <li>Weight: around <strong>4.5 kg</strong> per board.</li>
             <li>Timber: a mix of reclaimed Australian hardwoods with natural grain and colour variation.</li>
             <li>Features: deep juice groove, rounded edges, hand-sanded finish.</li>
             <li>Best for: daily chopping, BBQ prep, grazing boards and gifts.</li>
@@ -534,7 +534,7 @@
       <h2 class="section-heading">“It looks too nice to use… then we used it every night.”</h2>
       <div class="testimonials">
         <div class="testimonial-card">
-          “I bought a gorgeous wooden block from Noah. The most beautiful craftmanship and so much care taken in its construction. It will be a treasure for a long time.”
+          “I bought a gorgeous wooden block from Noah. The most beautiful craftsmanship and so much care taken in its construction. It will be a treasure for a long time.”
           <div class="testimonial-name">– Meg Eddy, Queensland</div>
         </div>
         <div class="testimonial-card">
@@ -604,7 +604,7 @@
         <p>
           Skipsey's Woodworking boards are made in small batches. When this week’s boards are gone, the next batch ships the following week.
         </p>
-        <a href="https://buy.stripe.com/dRmaEW8iPdzU8Yyg9Z6Zy00" class="btn-primary">Buy Noah's Board – $125 with free shipping</a>
+        <a href="https://buy.stripe.com/dRmaEW8iPdzU8Yyg9Z6Zy00" class="btn-primary">Buy Skipsey's Board – $125 with free shipping</a>
         <p style="margin-top:8px;font-size:0.85rem;opacity:0.8;">
           Secure checkout handled by Stripe.
         </p>
