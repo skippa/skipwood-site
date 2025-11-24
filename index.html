@@ -39,24 +39,45 @@
       padding: 20px 16px 60px;
     }
 
+    /* HEADER & BRANDING */
+
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 8px 0 16px;
-      gap: 8px;
+      gap: 12px;
       flex-wrap: wrap;
     }
 
     .brand-wrap {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 14px;
     }
 
-    .brand-logo-img {
-      height: 56px;
-      width: auto;
+    .brand-logo-mark {
+      height: 72px;
+      width: 72px;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .brand-name {
+      font-size: clamp(1.6rem, 3vw, 2rem);
+      font-weight: 750;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .brand-tagline {
+      font-size: 0.9rem;
+      opacity: 0.85;
     }
 
     .header-social {
@@ -334,9 +355,17 @@
         grid-template-columns: 1fr;
       }
       .hero { padding-top: 12px; }
-      header { flex-direction: column; align-items: flex-start; }
-      .header-social { text-align: left; }
-      .brand-logo-img { height: 50px; }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .header-social {
+        text-align: left;
+      }
+      .brand-logo-mark {
+        height: 60px;
+        width: 60px;
+      }
     }
   </style>
 </head>
@@ -345,7 +374,13 @@
   <div class="page">
     <header>
       <div class="brand-wrap">
-        <img src="images/logo_skipseys_landscape.png" alt="Skipsey's Woodworking logo" class="brand-logo-img">
+        <img src="images/logo_skipseys_circle_transparent.png"
+             alt="Skipsey's Woodworking logo"
+             class="brand-logo-mark">
+        <div class="brand-text">
+          <div class="brand-name">Skipsey's Woodworking</div>
+          <div class="brand-tagline">Handcrafted Australian hardwood boards · Gold Coast</div>
+        </div>
       </div>
       <div class="header-social">
         Follow Noah on Instagram:<br>
@@ -473,19 +508,19 @@
     <!-- TESTIMONIALS -->
     <section id="reviews">
       <div class="pill">What people say</div>
-      <h2 class="section-heading">“It looks too nice to use… then we used it every night.”</h2>
+      <h2 class="section-heading">“It looked too nice to use… then we used it every night.”</h2>
       <div class="testimonials">
         <div class="testimonial-card">
-          “Solid, heavy and beautifully finished. You can feel the difference as soon as you pick it up.”
-          <div class="testimonial-name">– Early customer</div>
+          “I bought a gorgeous wooden block from Noah. The most beautiful craftmanship and so much care taken with its construction. It will be a treasure for a long time.”
+          <div class="testimonial-name">– Meg Eddy, QLD</div>
         </div>
         <div class="testimonial-card">
-          “We bought one as a gift and then came back for another for ourselves.”
-          <div class="testimonial-name">– Gift buyer</div>
+          “I bought one of these as a 50th birthday present. I almost didn't give it as a gift and kept it for myself!”
+          <div class="testimonial-name">– Matthew Jackson, QLD</div>
         </div>
         <div class="testimonial-card">
-          “Love that it’s reclaimed Aussie hardwood and made locally by a young maker.”
-          <div class="testimonial-name">– Gold Coast customer</div>
+          “Sturdy, sleek and resistant. The perfect replacement to plastic chopping boards. Very happy to have bought!”
+          <div class="testimonial-name">– Angelina, VIC</div>
         </div>
       </div>
     </section>
