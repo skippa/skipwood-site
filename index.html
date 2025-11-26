@@ -15,6 +15,36 @@
     gtag('config', 'G-S45N192JX9');
   </script>
 
+  <script>
+  (function() {
+    let checkpoints = [25, 50, 75, 100];
+    let fired = {};
+
+    function sendDepthEvent(depth) {
+      if (fired[depth]) return;
+      fired[depth] = true;
+
+      // Send event to GA4
+      gtag('event', 'scroll_depth', {
+        event_category: 'engagement',
+        event_label: depth + '%',
+        value: depth
+      });
+    }
+
+    window.addEventListener('scroll', function() {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (scrollTop / docHeight) * 100;
+
+      checkpoints.forEach(depth => {
+        if (scrolled >= depth) sendDepthEvent(depth);
+      });
+    });
+  })();
+</script>
+
+
   <!-- Favicon + app icons -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
