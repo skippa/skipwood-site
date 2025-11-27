@@ -398,45 +398,46 @@
     }
 
     /* MOBILE */
-@media (max-width: 800px) {
-  .hero {
-    flex-direction: column;
-  }
-  .hero-image-wrap {
-    order: -1; /* show image first on mobile */
-  }
-  .two-col {
-    grid-template-columns: 1fr;
-  }
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .header-social {
-    text-align: left;
-  }
-  .brand-logo-mark {
-    height: 60px;
-    width: 60px;
-  }
+    @media (max-width: 800px) {
+      .hero {
+        flex-direction: column;
+      }
+      .hero-image-wrap {
+        order: -1; /* show image first on mobile */
+        position: relative; /* anchor mobile badge to the image card */
+      }
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .header-social {
+        text-align: left;
+      }
+      .brand-logo-mark {
+        height: 60px;
+        width: 60px;
+      }
 
-  .mobile-hero-badge {
-    display: inline-block;
-    position: absolute;
-    left: 50%;
-    bottom: 20px;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.75);
-    color: #fff;
-    padding: 8px 14px;
-    border-radius: 999px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    backdrop-filter: blur(4px);
-    z-index: 2;
-    white-space: nowrap;
-  }
-}
+      .mobile-hero-badge {
+        display: inline-block;
+        position: absolute;
+        left: 50%;
+        bottom: 20px;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.75);
+        color: #fff;
+        padding: 8px 14px;
+        border-radius: 999px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        backdrop-filter: blur(4px);
+        z-index: 2;
+        white-space: nowrap;
+      }
+    }
 
   </style>
 
