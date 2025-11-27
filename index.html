@@ -15,26 +15,21 @@
     gtag('config', 'G-S45N192JX9');
   </script>
 
-  <!-- Scroll-depth tracking -->
   <script>
     (function() {
-      let checkpoints = [25, 50, 75, 100];
+      const checkpoints = [25, 50, 75, 100];
       let fired = {};
 
       function sendDepthEvent(depth) {
         if (fired[depth]) return;
         fired[depth] = true;
 
-        if (typeof gtag === 'function') {
-          console.log('Sending scroll_depth event:', depth);  // <-- debug helper
-          gtag('event', 'scroll_depth', {
-            scroll_depth: depth,         // clean GA4 param
-            event_label: depth + '%',    // for your dimension
-            value: depth
-          });
-        } else {
-          console.warn('gtag not defined yet, scroll_depth skipped');
-        }
+        console.log("Sending scroll_depth event:", depth);
+
+        gtag('event', 'scroll_depth', {
+          scroll_depth: depth,
+          scroll_depth_label: depth + '%'
+        });
       }
 
       window.addEventListener('scroll', function() {
