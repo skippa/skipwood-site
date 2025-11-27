@@ -240,7 +240,13 @@
       padding: 16px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.09);
       border: 1px solid var(--border);
-      position: relative; /* for mobile badge positioning */
+    }
+
+    /* inner wrapper so badge is relative to image only */
+    .hero-image-inner {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
     }
 
     .hero-image-note {
@@ -250,7 +256,7 @@
       text-align: center;
     }
 
-    /* Mobile hero badge */
+    /* Mobile hero badge (hidden by default) */
     .mobile-hero-badge {
       display: none;
     }
@@ -398,13 +404,13 @@
     }
 
     /* MOBILE */
+
     @media (max-width: 800px) {
       .hero {
         flex-direction: column;
       }
       .hero-image-wrap {
         order: -1; /* show image first on mobile */
-        position: relative; /* anchor mobile badge to the image card */
       }
       .two-col {
         grid-template-columns: 1fr;
@@ -425,7 +431,7 @@
         display: inline-block;
         position: absolute;
         left: 50%;
-        bottom: 50px;
+        bottom: 18px;
         transform: translateX(-50%);
         background: rgba(0, 0, 0, 0.75);
         color: #fff;
@@ -438,7 +444,6 @@
         white-space: nowrap;
       }
     }
-
   </style>
 
   <!-- Cloudflare Web Analytics -->
@@ -494,22 +499,24 @@
       </div>
 
       <div class="hero-image-wrap">
-        <picture>
-          <source srcset="images/hero-mobile.jpg" media="(max-width: 800px)">
-          <img src="images/hero-desktop.jpg"
-               alt="Skipsey's Woodworking handcrafted Australian hardwood chopping board with knife and herbs">
-        </picture>
+        <div class="hero-image-inner">
+          <picture>
+            <source srcset="images/hero-mobile.jpg" media="(max-width: 800px)">
+            <img src="images/hero-desktop.jpg"
+                 alt="Skipsey's Woodworking handcrafted Australian hardwood chopping board with knife and herbs">
+          </picture>
 
-        <!-- MOBILE BADGE -->
-        <div class="mobile-hero-badge">
-          Handmade hardwood · $125 delivered
+          <!-- MOBILE BADGE (only shows on small screens) -->
+          <div class="mobile-hero-badge">
+            Handmade hardwood · $125 delivered
+          </div>
         </div>
 
         <p class="hero-image-note">Handmade Australian hardwood board – actual style, with grain and strip pattern varying for each piece.</p>
       </div>
     </section>
 
-    <!-- TESTIMONIALS (moved up for social proof near top) -->
+    <!-- TESTIMONIALS -->
     <section id="reviews">
       <div class="pill">What people say</div>
       <h2 class="section-heading">“It looks too nice to use… then we used it every night.”</h2>
@@ -529,7 +536,7 @@
       </div>
     </section>
 
-    <!-- BUY SECTION (moved higher on page) -->
+    <!-- BUY SECTION -->
     <section id="buy">
       <div class="final-cta">
         <h2 class="section-heading">Ready for one board you’ll use for years?</h2>
@@ -630,7 +637,7 @@
       </div>
     </section>
 
-    <!-- INSTAGRAM / FEED -->
+    <!-- INSTAGRAM -->
     <section id="instagram">
       <div class="pill">In the workshop</div>
       <h2 class="section-heading">See what Noah’s working on this week.</h2>
