@@ -248,7 +248,7 @@
       padding: 16px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.09);
       border: 1px solid var(--border);
-      position: relative; /* for mobile badge positioning */
+      position: relative; /* critical for overlay badge */
     }
 
     .hero-image-note {
@@ -258,9 +258,19 @@
       text-align: center;
     }
 
-    /* Mobile hero badge */
+    /* Mobile hero badge – distinct from .pill */
     .mobile-hero-badge {
       display: none;
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      background: rgba(0, 0, 0, 0.58);
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      backdrop-filter: blur(4px);
     }
 
     /* SECTIONS */
@@ -417,16 +427,6 @@
 
       .mobile-hero-badge {
         display: inline-block;
-        position: absolute;
-        bottom: 12px;
-        left: 12px;
-        background: rgba(0, 0, 0, 0.55);
-        color: #fff;
-        padding: 6px 10px;
-        border-radius: 6px;
-        font-size: 0.82rem;
-        font-weight: 500;
-        backdrop-filter: blur(4px);
       }
     }
   </style>
@@ -486,7 +486,7 @@
                alt="Skipsey's Woodworking handcrafted Australian hardwood chopping board with knife and herbs">
         </picture>
 
-        <!-- MOBILE BADGE -->
+        <!-- MOBILE BADGE OVERLAY -->
         <div class="mobile-hero-badge">
           Handmade hardwood · $125 delivered
         </div>
