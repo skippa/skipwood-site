@@ -248,7 +248,16 @@
       padding: 16px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.09);
       border: 1px solid var(--border);
-      position: relative; /* critical for overlay badge */
+    }
+
+    .hero-image-inner {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .hero-image-inner img {
+      border-radius: 10px;
     }
 
     .hero-image-note {
@@ -262,8 +271,8 @@
     .mobile-hero-badge {
       display: none;
       position: absolute;
-      left: 12px;
-      bottom: 12px;
+      left: 10px;
+      bottom: 10px;
       background: rgba(0, 0, 0, 0.58);
       color: #fff;
       padding: 6px 10px;
@@ -480,15 +489,17 @@
       </div>
 
       <div class="hero-image-wrap">
-        <picture>
-          <source srcset="images/hero-mobile.jpg" media="(max-width: 800px)">
-          <img src="images/hero-desktop.jpg"
-               alt="Skipsey's Woodworking handcrafted Australian hardwood chopping board with knife and herbs">
-        </picture>
+        <div class="hero-image-inner">
+          <picture>
+            <source srcset="images/hero-mobile.jpg" media="(max-width: 800px)">
+            <img src="images/hero-desktop.jpg"
+                 alt="Skipsey's Woodworking handcrafted Australian hardwood chopping board with knife and herbs">
+          </picture>
 
-        <!-- MOBILE BADGE OVERLAY -->
-        <div class="mobile-hero-badge">
-          Handmade hardwood · $125 delivered
+          <!-- MOBILE BADGE OVERLAY -->
+          <div class="mobile-hero-badge">
+            Handmade hardwood · $125 delivered
+          </div>
         </div>
 
         <p class="hero-image-note">Handmade Australian hardwood board – actual style, with grain and strip pattern varying for each piece.</p>
