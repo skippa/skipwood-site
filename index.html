@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Skipsey's Woodworking – Handcrafted Australian Hardwood Chopping Board</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Premium handcrafted Australian hardwood chopping board made from reclaimed timber. Built to last, made to be used every day. Free shipping Australia-wide. Skipsey's Woodworking, Gold Coast." />
+  <meta name="description" content="Premium handcrafted Australian hardwood chopping board made from reclaimed timber. Around 4.5 kg, approx 500 × 300 × 40 mm. $125 delivered Australia-wide. Handcrafted by 16-year-old Noah on the Gold Coast." />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-S45N192JX9"></script>
@@ -15,35 +15,34 @@
     gtag('config', 'G-S45N192JX9');
   </script>
 
+  <!-- Scroll-depth tracking -->
   <script>
-  (function() {
-    let checkpoints = [25, 50, 75, 100];
-    let fired = {};
+    (function() {
+      let checkpoints = [25, 50, 75, 100];
+      let fired = {};
 
-    function sendDepthEvent(depth) {
-      if (fired[depth]) return;
-      fired[depth] = true;
+      function sendDepthEvent(depth) {
+        if (fired[depth]) return;
+        fired[depth] = true;
 
-      // Send event to GA4
-      gtag('event', 'scroll_depth', {
-        event_category: 'engagement',
-        event_label: depth + '%',
-        value: depth
+        gtag('event', 'scroll_depth', {
+          event_category: 'engagement',
+          event_label: depth + '%',
+          value: depth
+        });
+      }
+
+      window.addEventListener('scroll', function() {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrolled = (scrollTop / docHeight) * 100;
+
+        checkpoints.forEach(depth => {
+          if (scrolled >= depth) sendDepthEvent(depth);
+        });
       });
-    }
-
-    window.addEventListener('scroll', function() {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrolled = (scrollTop / docHeight) * 100;
-
-      checkpoints.forEach(depth => {
-        if (scrolled >= depth) sendDepthEvent(depth);
-      });
-    });
-  })();
-</script>
-
+    })();
+  </script>
 
   <!-- Favicon + app icons -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -241,6 +240,7 @@
       padding: 16px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.09);
       border: 1px solid var(--border);
+      position: relative; /* for mobile badge positioning */
     }
 
     .hero-image-note {
@@ -248,6 +248,11 @@
       opacity: 0.7;
       margin-top: 6px;
       text-align: center;
+    }
+
+    /* Mobile hero badge */
+    .mobile-hero-badge {
+      display: none;
     }
 
     /* SECTIONS */
@@ -415,12 +420,25 @@
         height: 60px;
         width: 60px;
       }
+
+      .mobile-hero-badge {
+        display: inline-block;
+        position: absolute;
+        bottom: 12px;
+        left: 12px;
+        background: rgba(0, 0, 0, 0.55);
+        color: #fff;
+        padding: 6px 10px;
+        border-radius: 6px;
+        font-size: 0.82rem;
+        font-weight: 500;
+        backdrop-filter: blur(4px);
+      }
     }
   </style>
 
   <!-- Cloudflare Web Analytics -->
-  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "07d9d535e2af434b8eeaf61a41de45f9"}'>
-  </script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "07d9d535e2af434b8eeaf61a41de45f9"}'></script>
   <!-- End Cloudflare Web Analytics -->
 </head>
 
@@ -451,23 +469,23 @@
           <span>Made by Noah, 16</span>
         </div>
 
-        <h1>Stop buying flimsy chopping boards.</h1>
+        <h1>Handmade Australian hardwood chopping boards.</h1>
         <p class="subtitle">
-          This is a 4.5&nbsp;kg slab of reclaimed Australian hardwood, handcrafted in small batches on the Gold Coast. It’s built to live on your bench and take every chop, slice and BBQ session you throw at it.
+          Crafted by 16-year-old Noah Skipsey on the Gold Coast, from locally reclaimed timber. Built to live on your bench and take every chop, slice and BBQ session you throw at it.
         </p>
 
         <div class="price-row">
           <span class="price">$125</span>
-          <span class="ship-note">Free shipping Australia-wide · 500 × 300 × 40&nbsp;mm</span>
+          <span class="ship-note">Delivered anywhere in Australia · approx 500 × 300 × 40&nbsp;mm · around 4.5&nbsp;kg</span>
         </div>
 
         <div class="hero-cta">
-          <a href="https://buy.stripe.com/dRmaEW8iPdzU8Yyg9Z6Zy00" class="btn-primary">Buy this board</a>
+          <a href="https://buy.stripe.com/dRmaEW8iPdzU8Yyg9Z6Zy00" class="btn-primary">Order this board – $125 delivered</a>
           <a href="#details" class="btn-ghost">See details &amp; materials</a>
         </div>
 
         <div class="hero-meta">
-          Made by Noah at Skipsey's Woodworking on the Gold Coast using reclaimed Australian hardwood. Each board is unique, finished with food-safe oil and beeswax.
+          Each board is unique, finished with food-safe oil and beeswax. Noah makes small weekly batches – when this week’s boards are gone, the next batch ships the following week.
         </div>
       </div>
 
@@ -477,7 +495,47 @@
           <img src="images/hero-desktop.jpg"
                alt="Skipsey's Woodworking handcrafted Australian hardwood chopping board with knife and herbs">
         </picture>
-        <p class="hero-image-note">Actual board style. Grain and strip pattern vary with each piece of reclaimed timber.</p>
+
+        <!-- MOBILE BADGE -->
+        <div class="mobile-hero-badge">
+          Handmade hardwood · $125 delivered
+        </div>
+
+        <p class="hero-image-note">Handmade Australian hardwood board – actual style, with grain and strip pattern varying for each piece.</p>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS (moved up for social proof near top) -->
+    <section id="reviews">
+      <div class="pill">What people say</div>
+      <h2 class="section-heading">“It looks too nice to use… then we used it every night.”</h2>
+      <div class="testimonials">
+        <div class="testimonial-card">
+          “I bought a gorgeous wooden block from Noah. The most beautiful craftsmanship and so much care taken in its construction. It will be a treasure for a long time.”
+          <div class="testimonial-name">– Meg Eddy, Queensland</div>
+        </div>
+        <div class="testimonial-card">
+          “My mate loved it. Perfect gift! I bought one as a 50th birthday present. I almost kept it for myself!”
+          <div class="testimonial-name">– Matthew Jackson, Queensland</div>
+        </div>
+        <div class="testimonial-card">
+          “Sturdy, sleek and resistant. The perfect replacement to plastic chopping boards. Very happy to have bought one!”
+          <div class="testimonial-name">– Angelina Balaguer, Victoria</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUY SECTION (moved higher on page) -->
+    <section id="buy">
+      <div class="final-cta">
+        <h2 class="section-heading">Ready for one board you’ll use for years?</h2>
+        <p>
+          Skipsey's Woodworking boards are made in small batches. When this week’s boards are gone, the next batch ships the following week.
+        </p>
+        <a href="https://buy.stripe.com/dRmaEW8iPdzU8Yyg9Z6Zy00" class="btn-primary">Buy Noah's board – $125 delivered Australia-wide</a>
+        <p style="margin-top:8px;font-size:0.85rem;opacity:0.8;">
+          Secure checkout handled by Stripe.
+        </p>
       </div>
     </section>
 
@@ -514,6 +572,11 @@
           </p>
           <p>
             Every board is measured, glued, sanded and finished by hand. Buying one doesn’t just get you a beautiful kitchen piece – it helps a young maker grow a real craft business.
+          </p>
+          <p>
+            <strong>Want to choose your exact board?</strong> Send Noah a message on
+            <a href="https://www.instagram.com/skipsey_woodworking" target="_blank">Instagram</a>
+            and he’ll send photos of the boards ready to ship this week.
           </p>
         </div>
         <div>
@@ -559,26 +622,6 @@
               <p>Thick 40&nbsp;mm hardwood board with a smooth, hand-sanded finish.</p>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section id="reviews">
-      <div class="pill">What people say</div>
-      <h2 class="section-heading">“It looks too nice to use… then we used it every night.”</h2>
-      <div class="testimonials">
-        <div class="testimonial-card">
-          “I bought a gorgeous wooden block from Noah. The most beautiful craftsmanship and so much care taken in its construction. It will be a treasure for a long time.”
-          <div class="testimonial-name">– Meg Eddy, Queensland</div>
-        </div>
-        <div class="testimonial-card">
-          “My mate loved it. Perfect gift! I bought one as a 50th birthday present. I almost kept it for myself!”
-          <div class="testimonial-name">– Matthew Jackson, Queensland</div>
-        </div>
-        <div class="testimonial-card">
-          “Sturdy, sleek and resistant. The perfect replacement to plastic chopping boards. Very happy to have bought one!”
-          <div class="testimonial-name">– Angelina Balaguer, Victoria</div>
         </div>
       </div>
     </section>
@@ -629,20 +672,6 @@
             If your board arrives damaged or with a fault, contact us within 7 days with a photo and we’ll repair, replace or refund. We want you to absolutely love it.
           </p>
         </div>
-      </div>
-    </section>
-
-    <!-- FINAL CTA -->
-    <section id="buy">
-      <div class="final-cta">
-        <h2 class="section-heading">Ready for one board you’ll use for years?</h2>
-        <p>
-          Skipsey's Woodworking boards are made in small batches. When this week’s boards are gone, the next batch ships the following week.
-        </p>
-        <a href="https://buy.stripe.com/dRmaEW8iPdzU8Yyg9Z6Zy00" class="btn-primary">Buy Noah's Board – $125 with free shipping</a>
-        <p style="margin-top:8px;font-size:0.85rem;opacity:0.8;">
-          Secure checkout handled by Stripe.
-        </p>
       </div>
     </section>
 
