@@ -25,11 +25,16 @@
         if (fired[depth]) return;
         fired[depth] = true;
 
-        gtag('event', 'scroll_depth', {
-          event_category: 'engagement',
-          event_label: depth + '%',
-          value: depth
-        });
+        if (typeof gtag === 'function') {
+          console.log('Sending scroll_depth event:', depth);  // <-- debug helper
+          gtag('event', 'scroll_depth', {
+            scroll_depth: depth,         // clean GA4 param
+            event_label: depth + '%',    // for your dimension
+            value: depth
+          });
+        } else {
+          console.warn('gtag not defined yet, scroll_depth skipped');
+        }
       }
 
       window.addEventListener('scroll', function() {
@@ -42,7 +47,8 @@
         });
       });
     })();
-  </script>
+</script>
+
 
   <!-- Favicon + app icons -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
