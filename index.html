@@ -15,20 +15,20 @@
     gtag('config', 'G-S45N192JX9');
   </script>
 
+  <!-- Scroll-depth tracking -->
   <script>
     (function() {
-      const checkpoints = [25, 50, 75, 100];
+      let checkpoints = [25, 50, 75, 100];
       let fired = {};
 
       function sendDepthEvent(depth) {
         if (fired[depth]) return;
         fired[depth] = true;
 
-        console.log("Sending scroll_depth event:", depth);
-
         gtag('event', 'scroll_depth', {
-          scroll_depth: depth,
-          scroll_depth_label: depth + '%'
+          event_category: 'engagement',
+          event_label: depth + '%',
+          value: depth
         });
       }
 
@@ -42,8 +42,7 @@
         });
       });
     })();
-</script>
-
+  </script>
 
   <!-- Favicon + app icons -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -129,20 +128,28 @@
       text-decoration: underline;
     }
 
-    /* Maker badge */
+    /* Maker & section badges – unified style */
 
-    .maker-badge {
+    .maker-badge,
+    .pill {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
-      padding: 4px 10px;
+      letter-spacing: 0.13em;
+      padding: 4px 12px;
       border-radius: 999px;
       background: var(--accent-soft);
       color: #7e3a22;
+    }
+
+    .maker-badge {
       margin-bottom: 10px;
+    }
+
+    .pill {
+      margin-bottom: 8px;
     }
 
     .maker-dot {
@@ -241,13 +248,7 @@
       padding: 16px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.09);
       border: 1px solid var(--border);
-    }
-
-    /* inner wrapper so badge is relative to image only */
-    .hero-image-inner {
-      position: relative;
-      border-radius: 10px;
-      overflow: hidden;
+      position: relative; /* for mobile badge positioning */
     }
 
     .hero-image-note {
@@ -257,7 +258,7 @@
       text-align: center;
     }
 
-    /* Mobile hero badge (hidden by default) */
+    /* Mobile hero badge */
     .mobile-hero-badge {
       display: none;
     }
@@ -280,20 +281,6 @@
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
       gap: 28px;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      padding: 4px 12px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: #7e3a22;
-      margin-bottom: 8px;
     }
 
     ul.bullets { list-style: none; padding-left: 0; }
@@ -431,25 +418,18 @@
       .mobile-hero-badge {
         display: inline-block;
         position: absolute;
-        left: 50%;
-        bottom: 18px;
-        transform: translateX(-50%);
-        background: rgba(0, 0, 0, 0.75);
+        bottom: 12px;
+        left: 12px;
+        background: rgba(0, 0, 0, 0.55);
         color: #fff;
-        padding: 8px 14px;
-        border-radius: 999px;
-        font-size: 0.9rem;
-        font-weight: 600;
+        padding: 6px 10px;
+        border-radius: 6px;
+        font-size: 0.82rem;
+        font-weight: 500;
         backdrop-filter: blur(4px);
-        z-index: 2;
-        white-space: nowrap;
       }
     }
   </style>
-
-  <!-- Cloudflare Web Analytics -->
-  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "07d9d535e2af434b8eeaf61a41de45f9"}'></script>
-  <!-- End Cloudflare Web Analytics -->
 </head>
 
 <body>
@@ -500,17 +480,15 @@
       </div>
 
       <div class="hero-image-wrap">
-        <div class="hero-image-inner">
-          <picture>
-            <source srcset="images/hero-mobile.jpg" media="(max-width: 800px)">
-            <img src="images/hero-desktop.jpg"
-                 alt="Skipsey's Woodworking handcrafted Australian hardwood chopping board with knife and herbs">
-          </picture>
+        <picture>
+          <source srcset="images/hero-mobile.jpg" media="(max-width: 800px)">
+          <img src="images/hero-desktop.jpg"
+               alt="Skipsey's Woodworking handcrafted Australian hardwood chopping board with knife and herbs">
+        </picture>
 
-          <!-- MOBILE BADGE (only shows on small screens) -->
-          <div class="mobile-hero-badge">
-            Handmade hardwood · $125 delivered
-          </div>
+        <!-- MOBILE BADGE -->
+        <div class="mobile-hero-badge">
+          Handmade hardwood · $125 delivered
         </div>
 
         <p class="hero-image-note">Handmade Australian hardwood board – actual style, with grain and strip pattern varying for each piece.</p>
@@ -523,16 +501,16 @@
       <h2 class="section-heading">“It looks too nice to use… then we used it every night.”</h2>
       <div class="testimonials">
         <div class="testimonial-card">
-          “I bought a gorgeous wooden block from Noah. The most beautiful craftsmanship and so much care taken in its construction. It will be a treasure for a long time.”
-          <div class="testimonial-name">– Meg Eddy, Queensland</div>
+          “This cutting board has been so amazing so far. Solid under the knife, gentle on the hands, and just beautifully made. This board makes cooking feel more enjoyable every day. I would definitely recommend it to anyone looking for a handmade board.”
+          <div class="testimonial-name">– Luc Pittam, Queensland</div>
         </div>
         <div class="testimonial-card">
           “My mate loved it. Perfect gift! I bought one as a 50th birthday present. I almost kept it for myself!”
           <div class="testimonial-name">– Matthew Jackson, Queensland</div>
         </div>
         <div class="testimonial-card">
-          “Sturdy, sleek and resistant. The perfect replacement to plastic chopping boards. Very happy to have bought one!”
-          <div class="testimonial-name">– Angelina Balaguer, Victoria</div>
+          “Noah has produced an absolute masterpiece. The board is professionally finished with handles, spill moat and non-slip rubber feet. Best value board on the market and I’ll be back to buy more. Thanks Noah, great craftsmanship mate.”
+          <div class="testimonial-name">– Adam Dale, Queensland</div>
         </div>
       </div>
     </section>
@@ -638,7 +616,7 @@
       </div>
     </section>
 
-    <!-- INSTAGRAM -->
+    <!-- INSTAGRAM / FEED -->
     <section id="instagram">
       <div class="pill">In the workshop</div>
       <h2 class="section-heading">See what Noah’s working on this week.</h2>
