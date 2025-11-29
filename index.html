@@ -6,6 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Premium handcrafted Australian hardwood chopping board made from reclaimed timber. Around 4.5 kg, approx 500 × 300 × 40 mm. $125 delivered Australia-wide. Handcrafted by 16-year-old Noah on the Gold Coast." />
 
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Skipsey's Woodworking – Handcrafted Australian Hardwood Chopping Board" />
+  <meta property="og:description" content="Premium handcrafted Australian hardwood chopping board made from reclaimed Australian hardwood. Around 4.5 kg, approx 500 × 300 × 40 mm. $125 delivered Australia-wide. Handcrafted by 16-year-old Noah on the Gold Coast." />
+  <meta property="og:url" content="https://skipseywoodworking.com/" />
+  <meta property="og:image" content="https://skipseywoodworking.com/images/hero-desktop.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Skipsey's Woodworking – Handcrafted Australian Hardwood Chopping Board" />
+  <meta name="twitter:description" content="Premium handcrafted Australian hardwood chopping board made from reclaimed Australian hardwood. Around 4.5 kg, approx 500 × 300 × 40 mm. $125 delivered Australia-wide. Handcrafted by 16-year-old Noah on the Gold Coast." />
+  <meta name="twitter:image" content="https://skipseywoodworking.com/images/hero-desktop.jpg" />
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-S45N192JX9"></script>
   <script>
@@ -15,30 +30,46 @@
     gtag('config', 'G-S45N192JX9');
   </script>
 
-  <!-- Scroll-depth tracking -->
+  <!-- CTA click tracking -->
+  <script>
+    function trackCTA(label) {
+      if (typeof gtag === 'function') {
+        gtag('event', 'cta_click', {
+          cta_label: label,
+          value: 1
+        });
+      }
+    }
+  </script>
+
+  <!-- Scroll-depth tracking (10, 25, 50, 75, 100%) -->
   <script>
     (function() {
-      let checkpoints = [25, 50, 75, 100];
-      let fired = {};
+      const checkpoints = [10, 25, 50, 75, 100];
+      const fired = {};
 
       function sendDepthEvent(depth) {
         if (fired[depth]) return;
         fired[depth] = true;
 
         gtag('event', 'scroll_depth', {
-          event_category: 'engagement',
-          event_label: depth + '%',
-          value: depth
+          scroll_depth: depth,              // numeric value: 10, 25, 50, 75, 100
+          scroll_depth_label: depth + '%',  // "10%", "25%", etc.
+          value: depth                      // handy for sums
         });
       }
 
       window.addEventListener('scroll', function() {
         const scrollTop = window.scrollY || document.documentElement.scrollTop;
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (docHeight <= 0) return;
+
         const scrolled = (scrollTop / docHeight) * 100;
 
         checkpoints.forEach(depth => {
-          if (scrolled >= depth) sendDepthEvent(depth);
+          if (scrolled >= depth) {
+            sendDepthEvent(depth);
+          }
         });
       });
     })();
@@ -267,7 +298,7 @@
       text-align: center;
     }
 
-    /* Mobile hero badge – distinct from .pill */
+    /* Mobile hero badge – overlay on image */
     .mobile-hero-badge {
       display: none;
       position: absolute;
@@ -479,7 +510,11 @@
         </div>
 
         <div class="hero-cta">
-          <a href="https://buy.stripe.com/dRmaEW8iPdzU8Yyg9Z6Zy00" class="btn-primary">Order this board – $125 delivered</a>
+          <a href="https://buy.stripe.com/dRmaEW8iPdzU8Yyg9Z6Zy00"
+             class="btn-primary"
+             onclick="trackCTA('hero_order_125');">
+            Order this board – $125 delivered
+          </a>
           <a href="#details" class="btn-ghost">See details &amp; materials</a>
         </div>
 
@@ -533,7 +568,11 @@
         <p>
           Skipsey's Woodworking boards are made in small batches. When this week’s boards are gone, the next batch ships the following week.
         </p>
-        <a href="https://buy.stripe.com/dRmaEW8iPdzU8Yyg9Z6Zy00" class="btn-primary">Buy Noah's board – $125 delivered Australia-wide</a>
+        <a href="https://buy.stripe.com/dRmaEW8iPdzU8Yyg9Z6Zy00"
+           class="btn-primary"
+           onclick="trackCTA('final_order_125');">
+          Buy Noah's board – $125 delivered Australia-wide
+        </a>
         <p style="margin-top:8px;font-size:0.85rem;opacity:0.8;">
           Secure checkout handled by Stripe.
         </p>
