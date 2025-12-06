@@ -1,482 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Skipsey's Woodworking – Handmade Australian Hardwood Chopping Board</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Premium handmade Australian hardwood chopping board made from reclaimed timber. Approx 500 × 300 × 40 mm, around 4.5 kg. $125 delivered Australia-wide. Handcrafted by 16-year-old Noah on the Gold Coast."
-    />
+<head>
+  <meta charset="UTF-8" />
+  <title>Skipsey’s Woodworking – Handmade Australian Hardwood Chopping Board</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Premium handcrafted Australian hardwood chopping board made from reclaimed timbers. Around 4.5 kg, approx 500 × 300 × 40 mm. $125 delivered Australia-wide. Handcrafted by 16-year-old Noah on the Gold Coast." />
 
-    <!-- Open Graph / Social Sharing -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Skipsey's Woodworking – Handmade Australian Hardwood Chopping Board" />
-    <meta
-      property="og:description"
-      content="Premium handmade Australian hardwood chopping board made from reclaimed timber. $125 delivered anywhere in Australia. Handcrafted by 16-year-old Noah on the Gold Coast."
-    />
-    <!-- Update this image path/name if your share image is different -->
-    <meta property="og:image" content="images/hero-fb-share.jpg" />
-    <meta property="og:url" content="https://skipseywoodworking.com" />
-    <meta name="twitter:card" content="summary_large_image" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Handmade Australian hardwood chopping board — $125 delivered" />
+  <meta property="og:description" content="Premium handmade board crafted by 16-year-old Noah on the Gold Coast." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://skipseywoodworking.com/images/hero-fb-share.jpg" />
+  <meta property="og:url" content="https://skipseywoodworking.com/" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S45N192JX9"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-S45N192JX9");
-    </script>
+  <!-- Favicon -->
+  <link rel="icon" href="/images/favicon.png" />
 
-    <style>
-      :root {
-        --bg: #f5eee7;
-        --bg-card: #fff7ef;
-        --text-main: #2b2320;
-        --text-muted: #6c5a50;
-        --accent: #c75c32;
-        --accent-dark: #a14522;
-        --border-soft: #e1d2c3;
-        --radius-lg: 18px;
-        --radius-pill: 999px;
-        --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.05);
-      }
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S45N192JX9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-S45N192JX9');
+  </script>
 
-      * {
-        box-sizing: border-box;
-      }
+  <style>
+    :root{
+      --bg:#f7efe3;
+      --ink:#1f1a14;
+      --muted:#6b5f54;
+      --accent:#2f2a24;
+      --btn:#1d1a16;
+      --btn-ink:#fff;
+      --card:#ffffff;
+      --gap:10px;           /* tighter global gap */
+      --radius:16px;
+      --shadow:0 6px 20px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"}
+    a{color:inherit}
+    img{max-width:100%;display:block;border-radius:12px}
+    .wrap{max-width:980px;margin:0 auto;padding:24px 16px}
+    header{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+    header img.logo{width:44px;height:44px;border-radius:50%}
+    h1{font-size:clamp(28px,6vw,42px);line-height:1.1;margin:10px 0 8px}
+    .sub{color:var(--muted);margin:0 0 14px}
+    .price{font-size:22px;margin:4px 0 14px}
+    .btn{display:inline-block;background:var(--btn);color:var(--btn-ink);padding:14px 18px;border-radius:14px;font-weight:600;box-shadow:var(--shadow);text-decoration:none}
+    .btn:active{transform:translateY(1px)}
+    /* HERO */
+    .hero{margin-top:8px}
+    .hero-main{background:var(--card);padding:10px;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .thumbs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+    .thumbs img{height:140px;object-fit:cover}
+    /* scroll cue */
+    .cue{display:flex;align-items:center;justify-content:center;margin:14px 0 6px;color:var(--muted);font-size:13px;gap:8px}
+    .chev{width:10px;height:10px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);animation:bounce 1.6s infinite}
+    @keyframes bounce{
+      0%,100%{transform:translateY(0) rotate(45deg)}
+      50%{transform:translateY(6px) rotate(45deg)}
+    }
 
-      body {
-        margin: 0;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        color: var(--text-main);
-        background: var(--bg);
-      }
+    /* DETAILS LAYOUT */
+    section{margin:26px 0}
+    .card{background:var(--card);padding:14px;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .split{display:grid;grid-template-columns:1fr;gap:var(--gap)}
+    @media(min-width:760px){ .split{grid-template-columns:1.1fr .9fr} }
 
-      .page {
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-      }
+    ul.clean{margin:0;padding-left:18px}
+    ul.clean li{margin:6px 0}
 
-      .shell {
-        width: 100%;
-        max-width: 640px;
-        padding: 24px 16px 56px;
-      }
+    /* sprinkled image blocks */
+    .sprinkle{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+    @media(min-width:760px){ .sprinkle{grid-template-columns:1fr 1fr 1fr} }
 
-      header {
-        margin-bottom: 20px;
-      }
+    /* testimonials */
+    .t-grid{display:grid;grid-template-columns:1fr;gap:10px}
+    @media(min-width:760px){ .t-grid{grid-template-columns:1fr 1fr 1fr} }
+    .t{background:var(--card);padding:12px;border-radius:14px;box-shadow:var(--shadow);font-size:15px}
+    .t small{color:var(--muted)}
 
-      .logo-row {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 6px;
-      }
-
-      .logo {
-        width: 52px;
-        height: 52px;
-        border-radius: 50%;
-        overflow: hidden;
-        background: transparent;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .logo img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        display: block;
-      }
-
-      .brand-title {
-        font-size: 23px;
-        line-height: 1.1;
-        font-weight: 700;
-        letter-spacing: 0.15em;
-      }
-
-      .brand-subtitle {
-        font-size: 13px;
-        color: var(--text-muted);
-        margin-top: 6px;
-      }
-
-      main {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-      }
-
-      .hero-card {
-        background: #fff;
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-soft);
-        padding: 16px 16px 20px;
-      }
-
-      .hero-image-wrapper {
-        border-radius: 16px;
-        overflow: hidden;
-        margin-bottom: 16px;
-      }
-
-      .hero-image-wrapper img {
-        display: block;
-        width: 100%;
-        height: auto;
-      }
-
-      .hero-heading {
-        font-size: 22px;
-        line-height: 1.25;
-        font-weight: 700;
-        margin: 0 0 6px;
-      }
-
-      .hero-tagline {
-        font-size: 14px;
-        color: var(--text-muted);
-        margin: 0 0 14px;
-      }
-
-      .hero-price-line {
-        font-weight: 700;
-        font-size: 18px;
-        margin-bottom: 4px;
-      }
-
-      .hero-meta {
-        font-size: 13px;
-        color: var(--text-muted);
-        margin-bottom: 14px;
-      }
-
-      .hero-copy {
-        font-size: 14px;
-        line-height: 1.55;
-        margin-bottom: 18px;
-      }
-
-      .hero-cta-row {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .btn-primary {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        padding: 12px 18px;
-        border-radius: var(--radius-pill);
-        border: none;
-        background: var(--accent);
-        color: #fff;
-        font-size: 15px;
-        font-weight: 600;
-        text-decoration: none;
-        box-shadow: 0 10px 18px rgba(199, 92, 50, 0.25);
-      }
-
-      .btn-primary:active {
-        background: var(--accent-dark);
-      }
-
-      .btn-secondary {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        padding: 10px 16px;
-        border-radius: var(--radius-pill);
-        border: 1px solid var(--border-soft);
-        background: #fff;
-        color: var(--text-main);
-        font-size: 14px;
-        font-weight: 500;
-        text-decoration: none;
-      }
-
-      .section {
-        background: var(--bg-card);
-        border-radius: var(--radius-lg);
-        padding: 16px 16px 18px;
-        box-shadow: var(--shadow-soft);
-      }
-
-      .section-heading-label {
-        display: inline-flex;
-        align-items: center;
-        padding: 6px 12px;
-        border-radius: var(--radius-pill);
-        background: #f3ded0;
-        color: #7a4b35;
-        text-transform: uppercase;
-        font-size: 11px;
-        letter-spacing: 0.12em;
-        margin-bottom: 10px;
-      }
-
-      .section-heading {
-        font-size: 17px;
-        margin: 0 0 10px;
-      }
-
-      .section-body {
-        font-size: 14px;
-        line-height: 1.6;
-        color: var(--text-main);
-      }
-
-      .details-list {
-        margin: 10px 0 0;
-        padding-left: 20px;
-        font-size: 14px;
-        color: var(--text-main);
-      }
-
-      .details-list li {
-        margin-bottom: 4px;
-      }
-
-      .testimonial-quote {
-        font-size: 16px;
-        line-height: 1.6;
-        margin-bottom: 10px;
-      }
-
-      .testimonial-meta {
-        font-size: 13px;
-        color: var(--text-muted);
-      }
-
-      footer {
-        margin-top: 26px;
-        font-size: 12px;
-        color: var(--text-muted);
-        text-align: center;
-      }
-
-      footer a {
-        color: var(--accent);
-        text-decoration: none;
-        font-weight: 500;
-      }
-
-      .scroll-cue {
-        text-align: center;
-        font-size: 11px;
-        color: var(--text-muted);
-        margin-top: 6px;
-      }
-
-      @media (min-width: 720px) {
-        .shell {
-          padding-top: 40px;
-        }
-
-        .hero-card,
-        .section {
-          padding: 20px 22px 22px;
-        }
-
-        .hero-heading {
-          font-size: 24px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="page">
-      <div class="shell">
-        <header>
-          <div class="logo-row">
-            <div class="logo">
-              <img
-                src="images/logo_skipseys_circle_transparent.png"
-                alt="Skipsey's Woodworking logo"
-              />
-            </div>
-            <div>
-              <div class="brand-title">SKIPSEY'S<br />WOODWORKING</div>
-            </div>
-          </div>
-          <div class="brand-subtitle">
-            Premium handmade hardwood boards – crafted by a 16-year-old Gold Coast maker.
-          </div>
-        </header>
-
-        <main>
-          <section class="hero-card">
-            <div class="hero-image-wrapper">
-              <img
-                src="images/hero-desktop.jpg"
-                alt="Handmade Australian hardwood chopping board on a timber table with knife and herbs"
-              />
-            </div>
-
-            <h1 class="hero-heading">Handmade Australian hardwood chopping board</h1>
-            <p class="hero-tagline">
-              Individually crafted by 16-year-old Noah Skipsey from reclaimed Australian hardwood. Built solid, finished smooth and made to last.
-            </p>
-
-            <div class="hero-price-line">$125 delivered</div>
-            <div class="hero-meta">
-              Anywhere in Australia · approx 500 × 300 × 40 mm · around 4.5 kg
-            </div>
-
-            <p class="hero-copy">
-              Every board is handcrafted in small weekly batches. Slight variations in grain and colour make each piece truly one-of-a-kind – but every board
-              goes through the same careful sanding, oiling and finishing by Noah in his Gold Coast workshop.
-            </p>
-
-            <div class="hero-cta-row">
-              <a
-                href="https://buy.stripe.com/dRmaEW8iPdzU8Yyg9Z6Zy00"
-                class="btn-primary"
-                id="primary-cta"
-              >
-                Order yours now — $125 delivered
-              </a>
-              <a href="#details" class="btn-secondary" id="details-cta">
-                See details &amp; materials
-              </a>
-            </div>
-          </section>
-
-          <div class="scroll-cue">
-            ↓ Keep scrolling to see what people say and how Noah makes each board
-          </div>
-
-          <section class="section" id="details">
-            <div class="section-heading-label">Details &amp; materials</div>
-            <h2 class="section-heading">Solid hardwood, finished by hand</h2>
-            <div class="section-body">
-              <p>
-                Noah selects reclaimed Australian hardwoods, matches grain and colour, then laminates, shapes and finishes each board by hand. The result is a
-                heavy, stable chopping board that feels good under the knife and looks even better on the bench.
-              </p>
-              <ul class="details-list">
-                <li>Approx 500 × 300 × 40 mm, around 4.5 kg</li>
-                <li>Reclaimed Australian hardwoods, food-safe oil and beeswax finish</li>
-                <li>Chamfered edges for comfort and easier lifting</li>
-                <li>Non-slip rubber feet to keep the board steady on your bench</li>
-                <li>Each board is unique – no two grain patterns are the same</li>
-              </ul>
-            </div>
-          </section>
-
-          <section class="section">
-            <div class="section-heading-label">What people say</div>
-
-            <article>
-              <p class="testimonial-quote">
-                “I bought a gorgeous wooden block from Noah. The most beautiful craftsmanship and so much care taken in its construction. It will be a treasure
-                for a long time.”
-              </p>
-              <p class="testimonial-meta">— Meg Eddy, Queensland</p>
-            </article>
-
-            <article style="margin-top: 18px;">
-              <p class="testimonial-quote">
-                “My mate loved it. Perfect gift! I bought one as a 50th birthday present. I almost kept it for myself!”
-              </p>
-              <p class="testimonial-meta">— Matthew Jackson, Queensland</p>
-            </article>
-
-            <article style="margin-top: 18px;">
-              <p class="testimonial-quote">
-                “Sturdy, sleek and resistant. The perfect replacement to plastic chopping boards. Very happy to have bought one!”
-              </p>
-              <p class="testimonial-meta">— Angelina Balaguer, Victoria</p>
-            </article>
-
-            <article style="margin-top: 18px;">
-              <p class="testimonial-quote">
-                “Noah has produced an absolute masterpiece. The board is professionally finished with handles, spill mote and non-slip rubber feet. The best
-                value board on the market and I’ll be back to buy more.”
-              </p>
-              <p class="testimonial-meta">— Adam Dale, Queensland</p>
-            </article>
-          </section>
-        </main>
-
-        <footer>
-          <div>Handcrafted on the Gold Coast, Australia.</div>
-          <div style="margin-top: 4px;">
-            Follow Noah on Instagram:
-            <a
-              href="https://www.instagram.com/skipsey_woodworking"
-              target="_blank"
-              rel="noopener"
-            >
-              @skipsey_woodworking
-            </a>
-          </div>
-        </footer>
+    footer{color:var(--muted);font-size:13px;margin:40px 0 20px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img class="logo" src="/images/logo.png" alt="Skipsey’s Woodworking logo" />
+      <div>
+        <strong>SKIPSEY’S WOODWORKING</strong><br />
+        <span class="sub">Premium handmade hardwood boards – crafted by a 16-year-old Gold Coast maker.</span>
       </div>
+    </header>
+
+    <h1>Handmade Australian hardwood<br/>chopping board</h1>
+    <div class="price">$125 delivered</div>
+    <a href="#buy" class="btn" id="ctaTop">Buy yours now</a>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-main">
+        <img src="/images/hero-desktop.jpg" alt="Handmade mixed-hardwood chopping board on white background" loading="eager" />
+        <div class="thumbs" aria-label="More views">
+          <img src="/images/secondary-1.jpg" alt="Board close on table with knife" loading="lazy" />
+          <img src="/images/secondary-2.jpg" alt="Noah holding the finished board" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <div class="cue">
+      <span>Scroll for details</span><span class="chev"></span>
     </div>
 
-    <!-- Custom scroll depth + CTA click tracking -->
-    <script>
-      (function () {
-        // Scroll depth tracking
-        const thresholds = [10, 25, 50, 75, 100];
-        const reached = new Set();
+    <!-- DETAILS -->
+    <section id="details" class="split">
+      <div class="card">
+        <h2 style="margin-top:0">Why this board</h2>
+        <ul class="clean">
+          <li>Approx <strong>500 × 300 × 40 mm</strong> (about 4.5 kg).</li>
+          <li>Mixed reclaimed Australian hardwoods; unique grain on every board.</li>
+          <li><strong>Food-safe oil/wax</strong> finish.</li>
+          <li><strong>Juice groove</strong> and softly radiused edges.</li>
+          <li><strong>Non-slip feet</strong> for stability and airflow.</li>
+          <li>Made by Noah on the Gold Coast and shipped Australia-wide.</li>
+        </ul>
+        <div class="sprinkle">
+          <img src="/images/board-grain.jpg" alt="Close-up of timber grain and finish" loading="lazy">
+          <img src="/images/board-feet.jpg" alt="Underside showing rubber feet" loading="lazy">
+          <img src="/images/workshop-noah.jpg" alt="Noah in the workshop" loading="lazy">
+        </div>
+      </div>
+      <div class="card">
+        <img src="/images/secondary-1.jpg" alt="Board on table with knife and rosemary" loading="lazy">
+      </div>
+    </section>
 
-        function sendScrollDepth(percent) {
-          if (typeof gtag !== "function") return;
-          gtag("event", "scroll_depth", {
-            event_category: "Scroll",
-            event_label: percent + "%",
-            value: percent,
-          });
-        }
+    <section class="card" id="buy">
+      <h2 style="margin-top:0">Order & delivery</h2>
+      <p>Price is <strong>$125 delivered</strong> to anywhere in Australia. Boards are made in small batches and each one is different. Click the button to check out securely.</p>
+      <a href="https://buy.stripe.com/dRmaEW8iPdzU8Yyg9Z6Zy00" class="btn" id="ctaBuy">Buy now – $125 delivered</a>
+    </section>
 
-        function checkScrollDepth() {
-          const scrollTop = window.scrollY || document.documentElement.scrollTop;
-          const docHeight =
-            document.documentElement.scrollHeight - window.innerHeight;
-          if (docHeight <= 0) return;
-          const percent = Math.round((scrollTop / docHeight) * 100);
+    <section>
+      <h2>Care</h2>
+      <div class="card">
+        <ul class="clean">
+          <li>Hand-wash only; wipe dry straight after use.</li>
+          <li>Stand upright to allow airflow.</li>
+          <li>Refresh occasionally with food-safe board oil or wax.</li>
+          <li>Avoid soaking, dishwasher, or harsh detergents.</li>
+        </ul>
+      </div>
+    </section>
 
-          thresholds.forEach(function (t) {
-            if (percent >= t && !reached.has(t)) {
-              reached.add(t);
-              sendScrollDepth(t);
-            }
-          });
-        }
+    <section>
+      <h2>What people say</h2>
+      <div class="t-grid">
+        <div class="t">“I bought a gorgeous wooden block from Noah. The most beautiful craftsmanship and so much care taken in its construction. It will be a treasure for a long time.”<br><small>— Meg Eddy, Queensland</small></div>
+        <div class="t">“My mate loved it. Perfect gift! I bought one as a 50th birthday present. I almost kept it for myself!”<br><small>— Matthew Jackson, Queensland</small></div>
+        <div class="t">“Sturdy, sleek and resistant. The perfect replacement to plastic chopping boards. Very happy to have bought one!”<br><small>— Angelina Balaguer, Victoria</small></div>
+      </div>
+    </section>
 
-        window.addEventListener("scroll", checkScrollDepth);
-        window.addEventListener("load", checkScrollDepth);
+    <section class="card">
+      <h2>About the maker</h2>
+      <div class="split" style="align-items:center">
+        <p>Noah is a 16-year-old maker who loves timber and simple, durable design. Every board is glued, sanded and finished by hand in his family workshop.</p>
+        <img src="/images/secondary-2.jpg" alt="Noah with his handmade board" loading="lazy">
+      </div>
+    </section>
 
-        // CTA click tracking
-        function trackCta(id, label) {
-          var el = document.getElementById(id);
-          if (!el) return;
-          el.addEventListener("click", function () {
-            if (typeof gtag === "function") {
-              gtag("event", "cta_click", {
-                event_category: "engagement",
-                event_label: label,
-              });
-            }
-          });
-        }
+    <section style="text-align:center">
+      <a href="https://buy.stripe.com/dRmaEW8iPdzU8Yyg9Z6Zy00" class="btn" id="ctaBottom">Get yours for $125 delivered</a>
+    </section>
 
-        trackCta("primary-cta", "order_now_primary");
-        trackCta("details-cta", "see_details_materials");
-      })();
-    </script>
-  </body>
+    <footer>
+      © <span id="y"></span> Skipsey’s Woodworking · Gold Coast, Australia
+    </footer>
+  </div>
+
+  <script>
+    // year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // simple CTA click tracking
+    function track(id,label){
+      gtag('event','cta_click',{event_category:'engagement',event_label:label, value:1});
+    }
+    document.getElementById('ctaTop').addEventListener('click',()=>track('ctaTop','top'));
+    document.getElementById('ctaBuy').addEventListener('click',()=>track('ctaBuy','mid'));
+    document.getElementById('ctaBottom').addEventListener('click',()=>track('ctaBottom','bottom'));
+  </script>
+</body>
 </html>
