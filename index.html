@@ -34,7 +34,7 @@
       --btn:#1d1a16;
       --btn-ink:#fff;
       --card:#ffffff;
-      --gap:10px;           /* tighter global gap */
+      --gap:10px;
       --radius:16px;
       --shadow:0 6px 20px rgba(0,0,0,.08);
     }
@@ -50,38 +50,28 @@
     .price{font-size:22px;margin:4px 0 14px}
     .btn{display:inline-block;background:var(--btn);color:var(--btn-ink);padding:14px 18px;border-radius:14px;font-weight:600;box-shadow:var(--shadow);text-decoration:none}
     .btn:active{transform:translateY(1px)}
-    /* HERO */
     .hero{margin-top:8px}
     .hero-main{background:var(--card);padding:10px;border-radius:var(--radius);box-shadow:var(--shadow)}
     .thumbs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
     .thumbs img{height:140px;object-fit:cover}
-    /* scroll cue */
     .cue{display:flex;align-items:center;justify-content:center;margin:14px 0 6px;color:var(--muted);font-size:13px;gap:8px}
     .chev{width:10px;height:10px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);animation:bounce 1.6s infinite}
     @keyframes bounce{
       0%,100%{transform:translateY(0) rotate(45deg)}
       50%{transform:translateY(6px) rotate(45deg)}
     }
-
-    /* DETAILS LAYOUT */
     section{margin:26px 0}
     .card{background:var(--card);padding:14px;border-radius:var(--radius);box-shadow:var(--shadow)}
     .split{display:grid;grid-template-columns:1fr;gap:var(--gap)}
     @media(min-width:760px){ .split{grid-template-columns:1.1fr .9fr} }
-
     ul.clean{margin:0;padding-left:18px}
     ul.clean li{margin:6px 0}
-
-    /* sprinkled image blocks */
     .sprinkle{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
     @media(min-width:760px){ .sprinkle{grid-template-columns:1fr 1fr 1fr} }
-
-    /* testimonials */
     .t-grid{display:grid;grid-template-columns:1fr;gap:10px}
     @media(min-width:760px){ .t-grid{grid-template-columns:1fr 1fr 1fr} }
     .t{background:var(--card);padding:12px;border-radius:14px;box-shadow:var(--shadow);font-size:15px}
     .t small{color:var(--muted)}
-
     footer{color:var(--muted);font-size:13px;margin:40px 0 20px}
   </style>
 </head>
@@ -99,7 +89,6 @@
     <div class="price">$125 delivered</div>
     <a href="#buy" class="btn" id="ctaTop">Buy yours now</a>
 
-    <!-- HERO -->
     <section class="hero">
       <div class="hero-main">
         <img src="/images/hero-desktop.jpg" alt="Handmade mixed-hardwood chopping board on white background" loading="eager" />
@@ -114,7 +103,6 @@
       <span>Scroll for details</span><span class="chev"></span>
     </div>
 
-    <!-- DETAILS -->
     <section id="details" class="split">
       <div class="card">
         <h2 style="margin-top:0">Why this board</h2>
@@ -182,16 +170,44 @@
   </div>
 
   <script>
-    // year
+    // YEAR
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // simple CTA click tracking
+    // CTA CLICK TRACKING
     function track(id,label){
       gtag('event','cta_click',{event_category:'engagement',event_label:label, value:1});
     }
     document.getElementById('ctaTop').addEventListener('click',()=>track('ctaTop','top'));
     document.getElementById('ctaBuy').addEventListener('click',()=>track('ctaBuy','mid'));
     document.getElementById('ctaBottom').addEventListener('click',()=>track('ctaBottom','bottom'));
+
+    // SCROLL DEPTH TRACKING (10%, 25%, 50%, 75%, 100%)
+    (function(){
+      const fired = {10:false, 25:false, 50:false, 75:false, 100:false};
+
+      function checkScroll(){
+        const doc = document.documentElement;
+        const viewportBottom = (window.scrollY || window.pageYOffset) + window.innerHeight;
+        const scrollPercent = (viewportBottom / doc.scrollHeight) * 100;
+
+        [10,25,50,75,100].forEach(function(p){
+          if (!fired[p] && scrollPercent >= p){
+            fired[p] = true;
+            gtag('event', 'scroll_' + p, {
+              event_category:'engagement',
+              event_label:p + '%',
+              value:p
+            });
+          }
+        });
+
+        if (fired[100]) {
+          window.removeEventListener('scroll', checkScroll);
+        }
+      }
+
+      window.addEventListener('scroll', checkScroll, {passive:true});
+    })();
   </script>
 </body>
 </html>
