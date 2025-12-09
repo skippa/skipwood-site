@@ -50,7 +50,7 @@
     .btn{display:inline-block;background:var(--btn);color:var(--btn-ink);padding:14px 18px;border-radius:14px;font-weight:600;box-shadow:var(--shadow);text-decoration:none}
     .btn:active{transform:translateY(1px)}
 
-    /* NEW hero-intro */
+    /* hero intro */
     .hero-intro{margin-bottom:10px}
     .eyebrow{
       font-size:13px;
@@ -111,7 +111,6 @@
     ul.clean{margin:0;padding-left:18px}
     ul.clean li{margin:6px 0}
 
-    /* sprinkled image blocks */
     .sprinkle{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
     @media(min-width:760px){ .sprinkle{grid-template-columns:1fr 1fr 1fr} }
 
@@ -147,17 +146,16 @@
     .trust-row{
       display:flex;
       align-items:center;
-      gap:8px;
-      margin:6px 0 4px;
+      gap:12px;
+      margin:8px 0 6px;
       flex-wrap:wrap;
     }
-    .trust-pill{
-      font-size:13px;
-      border:1px solid var(--muted);
-      border-radius:999px;
-      padding:4px 10px;
-      background:transparent;
-      line-height:1;
+    .trust-row img{
+      height:20px;
+      width:auto;
+      object-fit:contain;
+      border-radius:0;
+      display:block;
     }
     .trust-copy{
       font-size:13px;
@@ -248,14 +246,12 @@
         </p>
       </div>
 
-      <!-- Payment methods as text pills -->
+      <!-- Payment method: Stripe SVG logo -->
       <div class="trust-row" aria-label="Payment methods">
-        <span class="trust-pill">Stripe</span>
-        <span class="trust-pill">PayPal</span>
-        <span class="trust-pill">Afterpay</span>
+        <img src="/images/logo-stripe.svg" alt="Stripe secure payment" />
       </div>
 
-      <p class="trust-copy">Secure, encrypted checkout — handmade and shipped within 48 hrs.</p>
+      <p class="trust-copy">Secure, encrypted payment via Stripe.</p>
 
       <a href="https://buy.stripe.com/dRmaEW8iPdzU8Yyg9Z6Zy00" class="btn" id="ctaBuy">Buy now – $125 delivered</a>
     </section>
