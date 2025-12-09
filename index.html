@@ -39,15 +39,32 @@
       --shadow:0 6px 20px rgba(0,0,0,.08);
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji"}
+    html,body{
+      margin:0;
+      padding:0;
+      background:var(--bg);
+      color:var(--ink);
+      font:17px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+    }
     a{color:inherit}
     img{max-width:100%;display:block;border-radius:12px}
     .wrap{max-width:980px;margin:0 auto;padding:24px 16px}
     header{display:flex;align-items:center;gap:12px;margin-bottom:8px}
     header img.logo{width:44px;height:44px;border-radius:50%}
     h1{font-size:clamp(28px,6vw,42px);line-height:1.1;margin:6px 0 10px}
+    h2{font-size:22px;margin:0 0 10px}
     .sub{color:var(--muted);margin:0 0 4px}
-    .btn{display:inline-block;background:var(--btn);color:var(--btn-ink);padding:14px 18px;border-radius:14px;font-weight:600;box-shadow:var(--shadow);text-decoration:none}
+    .btn{
+      display:inline-block;
+      background:var(--btn);
+      color:var(--btn-ink);
+      padding:14px 18px;
+      border-radius:14px;
+      font-weight:600;
+      box-shadow:var(--shadow);
+      text-decoration:none;
+      font-size:16px;
+    }
     .btn:active{transform:translateY(1px)}
 
     /* hero intro */
@@ -70,11 +87,11 @@
       font-weight:600;
     }
     .stock-note{
-      font-size:13px;
+      font-size:14px;
       color:var(--muted);
     }
     .trust-note{
-      font-size:14px;
+      font-size:15px;
       color:var(--muted);
       margin:6px 0 0;
       max-width:500px;
@@ -117,7 +134,13 @@
     /* testimonials */
     .t-grid{display:grid;grid-template-columns:1fr;gap:10px}
     @media(min-width:760px){ .t-grid{grid-template-columns:1fr 1fr 1fr} }
-    .t{background:var(--card);padding:12px;border-radius:14px;box-shadow:var(--shadow);font-size:15px}
+    .t{
+      background:var(--card);
+      padding:12px;
+      border-radius:14px;
+      box-shadow:var(--shadow);
+      font-size:16px;
+    }
     .t small{color:var(--muted)}
 
     footer{color:var(--muted);font-size:13px;margin:40px 0 20px}
@@ -125,11 +148,12 @@
     /* ORDER & DELIVERY trust elements */
     .review-teaser{
       display:flex;
+      flex-direction:column;
       align-items:flex-start;
-      gap:10px;
-      font-size:15px;
+      gap:4px;
+      font-size:16px;
       line-height:1.4;
-      margin:10px 0 8px;
+      margin:12px 0 10px;
     }
     .review-teaser-text{
       margin:0;
@@ -151,14 +175,14 @@
       flex-wrap:wrap;
     }
     .trust-row img{
-      height:30px;
+      height:28px;
       width:auto;
       object-fit:contain;
       border-radius:0;
       display:block;
     }
     .trust-copy{
-      font-size:13px;
+      font-size:14px;
       color:var(--muted);
       margin:0 0 10px;
     }
@@ -231,7 +255,7 @@
 
       <!-- Review teaser with stars -->
       <div class="review-teaser" aria-label="Customer review">
-        <svg width="110" height="18" viewBox="0 0 150 26" aria-hidden="true" focusable="false">
+        <svg width="120" height="20" viewBox="0 0 150 26" aria-hidden="true" focusable="false">
           <g fill="black">
             <path d="M15 0l4.045 8.19L28 9.51l-6.5 6.39L23.09 25 15 20.76 6.91 25l1.59-9.1L2 9.51l8.955-1.32L15 0z"/>
             <path d="M45 0l4.045 8.19L58 9.51l-6.5 6.39L53.09 25 45 20.76 36.91 25l1.59-9.1L32 9.51l8.955-1.32L45 0z"/>
@@ -272,7 +296,13 @@
       <h2>What people say</h2>
       <div class="t-grid">
         <div class="t">“I bought a gorgeous wooden block from Noah. The most beautiful craftsmanship and so much care taken in its construction. It will be a treasure for a long time.”<br><small>— Meg Eddy, Queensland</small></div>
+
+        <div class="t">“Noah has produced an absolute masterpiece. The board is professionally finished with both handles and spill mote in place and also non slip rubber feet in place. The best value board on the market and will be back to buy more. Thanks Noah, great craftsmanship mate.”<br><small>— Adam Dale, Queensland</small></div>
+
         <div class="t">“My mate loved it. Perfect gift! I bought one as a 50th birthday present. I almost kept it for myself!”<br><small>— Matthew Jackson, Queensland</small></div>
+
+        <div class="t">“I love my hand crafted chopping board! I like its artisan feeling with its quality finish. It looks beautiful in my kitchen and is functional and unique at the same time.”<br><small>— Dan Ridgley Hewitt</small></div>
+
         <div class="t">“Sturdy, sleek and resistant. The perfect replacement to plastic chopping boards. Very happy to have bought one!”<br><small>— Angelina Balaguer, Victoria</small></div>
       </div>
     </section>
