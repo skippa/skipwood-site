@@ -80,7 +80,7 @@
       display:flex;
       flex-direction:column;
       gap:3px;
-      margin-bottom:10px;
+      margin-bottom:6px;
     }
     .price{
       font-size:20px;
@@ -93,8 +93,24 @@
     .trust-note{
       font-size:15px;
       color:var(--muted);
-      margin:6px 0 0;
+      margin:8px 0 0;
       max-width:500px;
+    }
+    .hero-review{
+      margin:4px 0 10px;
+      font-size:15px;
+    }
+    .hero-review .stars{
+      display:block;
+      font-size:14px;
+      letter-spacing:2px;
+      margin-bottom:2px;
+    }
+    .hero-review small{
+      display:block;
+      color:var(--muted);
+      font-size:13px;
+      margin-top:2px;
     }
     @media(min-width:640px){
       .hero-intro .price-line{
@@ -201,15 +217,23 @@
     </header>
 
     <div class="hero-intro">
-      <p class="eyebrow">🎁 Thoughtful Christmas gift for food lovers</p>
+      <p class="eyebrow">🎁 The perfect premium Christmas gift</p>
       <h1>Handmade Australian hardwood<br />chopping board</h1>
       <div class="price-line">
         <span class="price">$139 delivered — premium handmade gift</span>
-        <span class="stock-note">Small batch only – limited boards available each week.</span>
+        <span class="stock-note">Only 6–10 boards available each week — each one slightly different.</span>
       </div>
+
+      <div class="hero-review">
+        <span class="stars">★★★★★</span>
+        <span>“Noah has produced an absolute masterpiece. The best value board on the market and will be back to buy more.”</span>
+        <small>— Adam Dale, Queensland</small>
+      </div>
+
       <a href="#buy" class="btn" id="ctaTop">Order now – $139 delivered</a>
+
       <p class="trust-note">
-        Each board is glued, sanded and finished by 16-year-old Noah in his family workshop using sustainably sourced Australian hardwoods.
+        A solid 4.5 kg slab of sustainably sourced Australian hardwood — crafted, glued, sanded and finished by hand in Noah’s family workshop on the Gold Coast.
       </p>
     </div>
 
