@@ -38,78 +38,87 @@
       --radius:16px;
       --shadow:0 6px 20px rgba(0,0,0,.08);
     }
+
     *{box-sizing:border-box}
     html,body{
       margin:0;
       padding:0;
       background:var(--bg);
       color:var(--ink);
-      font:17px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+      /* COP#4: bigger baseline for 55+ */
+      font:18.5px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
     }
     a{color:inherit}
     img{max-width:100%;display:block;border-radius:12px}
-    .wrap{max-width:980px;margin:0 auto;padding:24px 16px}
+
+    /* COP#4: bring hero up a bit (less top padding) */
+    .wrap{max-width:980px;margin:0 auto;padding:18px 16px 24px}
+
     header{display:flex;align-items:center;gap:12px;margin-bottom:8px}
     header img.logo{width:44px;height:44px;border-radius:50%}
-    h1{font-size:clamp(28px,6vw,42px);line-height:1.1;margin:6px 0 10px}
-    h2{font-size:22px;margin:0 0 10px}
-    .sub{color:var(--muted);margin:0 0 4px}
+
+    /* COP#4: slightly larger headline */
+    h1{font-size:clamp(30px,6.2vw,46px);line-height:1.08;margin:8px 0 10px}
+    h2{font-size:24px;margin:0 0 10px}
+
+    .sub{color:var(--muted);margin:0 0 4px;font-size:15.5px}
+
     .btn{
       display:inline-block;
       background:var(--btn);
       color:var(--btn-ink);
-      padding:14px 18px;
+      padding:15px 18px;         /* COP#4: slightly taller */
       border-radius:14px;
-      font-weight:600;
+      font-weight:650;
       box-shadow:var(--shadow);
       text-decoration:none;
-      font-size:16px;
+      font-size:17px;            /* COP#4: bigger button text */
     }
     .btn:active{transform:translateY(1px)}
 
     /* hero intro */
     .hero-intro{margin-bottom:10px}
     .eyebrow{
-      font-size:13px;
+      font-size:14px;            /* COP#4: bump */
       letter-spacing:.03em;
       text-transform:uppercase;
       color:var(--muted);
-      margin:0 0 4px;
+      margin:0 0 6px;
     }
     .hero-intro .price-line{
       display:flex;
       flex-direction:column;
-      gap:3px;
-      margin-bottom:6px;
+      gap:4px;
+      margin-bottom:8px;
     }
     .price{
-      font-size:20px;
-      font-weight:600;
+      font-size:21px;            /* COP#4: bump */
+      font-weight:650;
     }
     .stock-note{
-      font-size:14px;
+      font-size:15px;            /* COP#4: bump */
       color:var(--muted);
     }
     .trust-note{
-      font-size:15px;
+      font-size:16.5px;          /* COP#4: bump */
       color:var(--muted);
-      margin:8px 0 0;
-      max-width:500px;
+      margin:10px 0 0;
+      max-width:560px;
     }
     .hero-review{
-      margin:4px 0 10px;
-      font-size:15px;
+      margin:6px 0 12px;
+      font-size:16px;            /* COP#4: bump */
     }
     .hero-review .stars{
       display:block;
-      font-size:14px;
+      font-size:15px;
       letter-spacing:2px;
       margin-bottom:2px;
     }
     .hero-review small{
       display:block;
       color:var(--muted);
-      font-size:13px;
+      font-size:14px;            /* COP#4: bump */
       margin-top:2px;
     }
     @media(min-width:640px){
@@ -118,11 +127,11 @@
         align-items:center;
         gap:10px;
       }
-      .stock-note{font-size:13px;}
+      .stock-note{font-size:14px;}
     }
 
     /* HERO */
-    .hero{margin-top:6px}
+    .hero{margin-top:8px}
     .hero-main{background:var(--card);padding:10px;border-radius:var(--radius);box-shadow:var(--shadow)}
     .thumbs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
     .thumbs img{height:140px;object-fit:cover}
@@ -155,9 +164,9 @@
       padding:12px;
       border-radius:14px;
       box-shadow:var(--shadow);
-      font-size:16px;
+      font-size:16.5px;          /* COP#4: bump */
     }
-    .t small{color:var(--muted)}
+    .t small{color:var(--muted);font-size:14px}
     .t-stars{margin-bottom:4px;}
     .t-stars svg{display:block;}
 
@@ -168,44 +177,42 @@
       display:flex;
       flex-direction:column;
       align-items:flex-start;
-      gap:4px;
-      font-size:16px;
-      line-height:1.4;
+      gap:6px;
+      font-size:16.5px;          /* COP#4: bump */
+      line-height:1.45;
       margin:12px 0 10px;
     }
-    .review-teaser-text{
-      margin:0;
-    }
+    .review-teaser-text{ margin:0; }
     .review-teaser small{
       display:block;
       color:var(--muted);
-      font-size:13px;
+      font-size:14px;
       margin-top:2px;
     }
-    .review-teaser svg{
-      flex-shrink:0;
-    }
+    .review-teaser svg{ flex-shrink:0; }
+
     .trust-row{
       display:flex;
       align-items:center;
       gap:12px;
-      margin:8px 0 6px;
+      margin:10px 0 6px;
       flex-wrap:wrap;
     }
     .trust-row img{
-      height:28px;
+      height:30px;
       width:auto;
       object-fit:contain;
       border-radius:0;
       display:block;
     }
     .trust-copy{
-      font-size:14px;
+      font-size:14.5px;          /* COP#4: bump */
       color:var(--muted);
-      margin:0 0 10px;
+      margin:0 0 12px;
     }
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <header>
@@ -216,9 +223,17 @@
       </div>
     </header>
 
+    <!-- COP#4: WOW IMAGE FIRST -->
+    <section class="hero" aria-label="Hero image">
+      <div class="hero-main">
+        <img src="/images/hero-desktop.jpg" alt="Handmade mixed-hardwood chopping board on white background" loading="eager" />
+      </div>
+    </section>
+
     <div class="hero-intro">
       <p class="eyebrow">🎁 The perfect premium Christmas gift</p>
       <h1>Handmade Australian hardwood<br />chopping board</h1>
+
       <div class="price-line">
         <span class="price">$139 delivered — premium handmade gift</span>
         <span class="stock-note">Only 6–10 boards available each week — each one slightly different.</span>
@@ -237,10 +252,9 @@
       </p>
     </div>
 
-    <!-- HERO -->
-    <section class="hero">
+    <!-- COP#4: thumbnails stay (same filenames) -->
+    <section class="hero" aria-label="More views">
       <div class="hero-main">
-        <img src="/images/hero-desktop.jpg" alt="Handmade mixed-hardwood chopping board on white background" loading="eager" />
         <div class="thumbs" aria-label="More views">
           <img src="/images/secondary-1.jpg" alt="Board close on table with knife" loading="lazy" />
           <img src="/images/secondary-2.jpg" alt="Noah holding the finished board" loading="lazy" />
