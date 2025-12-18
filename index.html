@@ -18,17 +18,6 @@
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-S45N192JX9"></script>
-
-  <!-- COP#5.1: Image zoom modal -->
-  <div id="imgZoom" class="img-zoom" hidden>
-    <div class="img-zoom__backdrop" data-close></div>
-    <figure class="img-zoom__panel" role="dialog" aria-modal="true" aria-label="Image zoom">
-      <button class="img-zoom__close" type="button" aria-label="Close image" data-close>×</button>
-      <img id="imgZoomTarget" alt="">
-      <figcaption id="imgZoomCaption" class="img-zoom__caption"></figcaption>
-    </figure>
-  </div>
-
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -125,7 +114,6 @@
       font-size:15px;
       letter-spacing:2px;
       margin-bottom:2px;
-      overflow: visible;
     }
     .hero-review small{
       display:block;
@@ -223,78 +211,46 @@
       margin:0 0 12px;
     }
   
-    /* COP#5.1: "50+ boards sold" spacing */
-    .sold-badge{
-      display:inline-flex;
-      align-items:baseline;
-      gap:6px;
-      line-height:1;
-      white-space:nowrap;
+    /* COP#5.1 STARS ONLY: DRY stars (one sprite, consistent rendering) */
+    .stars5{
+      display:block;
+      color:#000;
+      overflow:visible;
     }
-    .sold-number{font-weight:750}
-    .sold-text{color:var(--muted)}
+    /* sizes */
+    .stars5--hero{ width:120px; height:20px; }
+    .stars5--mid{  width:120px; height:20px; }
+    .stars5--sm{   width:108px; height:18px; }
 
-    /* COP#5.1: tap-to-zoom images */
-    .zoomable{cursor:zoom-in}
-    .img-zoom[hidden]{display:none}
-    .img-zoom{position:fixed; inset:0; z-index:9999}
-    .img-zoom__backdrop{position:absolute; inset:0; background:rgba(0,0,0,.75)}
-    .img-zoom__panel{
-      position:relative;
-      margin:0;
-      height:100%;
-      display:grid;
-      place-items:center;
-      padding:16px;
-    }
-    .img-zoom__panel img{
-      max-width:min(96vw, 980px);
-      max-height:82vh;
-      width:auto;
-      height:auto;
-      border-radius:16px;
-    }
-    .img-zoom__close{
-      position:absolute;
-      top:12px;
-      right:12px;
-      width:44px;
-      height:44px;
-      border-radius:999px;
-      border:0;
-      font-size:28px;
-      line-height:44px;
-      cursor:pointer;
-      background:#fff;
-      color:#111;
-      box-shadow:0 8px 22px rgba(0,0,0,.18);
-    }
-    .img-zoom__caption{
-      margin-top:10px;
-      max-width:min(96vw, 980px);
-      text-align:center;
-      color:#fff;
-      opacity:.92;
-      font-size:14.5px;
-    }
+    /* make sure the stars are not centred by inline layout */
+    .hero-review .stars{ display:block; margin:0 0 2px 0; }
+    .hero-review .stars svg{ margin-left:0; }
 
-  
-    /* COP#5.1 stars: ensure SVG starts flush-left (no centering indent) */
-    .stars svg{ display:block; margin-left:0; margin-right:0; }
+    .review-teaser svg{ margin-left:0; }
+    .t-stars svg{ margin-left:0; }
 
   </style>
 </head>
 
 <body>
   
-  <!-- SVG sprite (COP#5.1: define star once, reuse everywhere) -->
+  <!-- COP#5.1 STARS ONLY: define once, reuse everywhere -->
   <svg width="0" height="0" style="position:absolute; left:-9999px; top:-9999px;" aria-hidden="true" focusable="false">
+    <!-- Single star: shifted left by 2 units to remove built-in gutter -->
     <symbol id="star30" viewBox="0 0 30 26">
       <g transform="translate(-2,0)">
-        <path d="M15 0l4.045 8.19L28 9.51l-6.5 6.39L23.09 25 15 20.76 6.91 25l1.59-9.1L2 9.51l8.955-1.32L15 0z"/>
+        <path fill="currentColor" d="M15 0l4.045 8.19L28 9.51l-6.5 6.39L23.09 25 15 20.76 6.91 25l1.59-9.1L2 9.51l8.955-1.32L15 0z"/>
       </g>
     </symbol>
 
+    <!-- Five stars in a row -->
+    <symbol id="stars5" viewBox="0 0 150 26">
+      <use href="#star30" x="0" y="0"></use>
+      <use href="#star30" x="30" y="0"></use>
+      <use href="#star30" x="60" y="0"></use>
+      <use href="#star30" x="90" y="0"></use>
+      <use href="#star30" x="120" y="0"></use>
+    </symbol>
   </svg>
 
 <div class="wrap">
@@ -319,26 +275,13 @@
 
       <a href="#buy" class="btn" id="ctaTop">Order now – $139 delivered</a>
 
-      <div class="price-line" style="margin-top:14px;">
-        <div class="sold-badge" aria-label="Over 50 boards sold">
-          <span class="sold-number">50+</span>
-          <span class="sold-text">boards sold Australia-wide — each one unique.</span>
-        </div>
+      <div class="price-line" style="margin-top: 14 px;">
+        <span class="stock-note">50+ boards sold Australia-wide — each one unique.</span>
       </div>
 
       <div class="hero-review">
         <span class="stars" aria-hidden="true">
-          <svg width="150" height="20" viewBox="0 0 150 26" focusable="false" preserveAspectRatio="xMinYMid meet">
-
-  <g fill="black">
-          <use href="#star30" x="0" y="0"></use>
-          <use href="#star30" x="30" y="0"></use>
-          <use href="#star30" x="60" y="0"></use>
-          <use href="#star30" x="90" y="0"></use>
-          <use href="#star30" x="120" y="0"></use>
-</g>
-
-</svg>
+          <svg class="stars5 stars5--hero" viewBox="0 0 150 26" preserveAspectRatio="xMinYMid meet" aria-hidden="true" focusable="false"><use href="#stars5"></use></svg>
         </span>
         <span>“Noah has produced an absolute masterpiece. The best value board on the market and will be back to buy more.”</span>
         <small>— Adam Dale, Queensland</small>
@@ -392,17 +335,7 @@
 
       <!-- Review teaser with stars (main size) -->
       <div class="review-teaser" aria-label="Customer review">
-        <svg width="150" height="20" viewBox="0 0 150 26" aria-hidden="true" focusable="false" preserveAspectRatio="xMinYMid meet">
-
-  <g fill="black">
-          <use href="#star30" x="0" y="0"></use>
-          <use href="#star30" x="30" y="0"></use>
-          <use href="#star30" x="60" y="0"></use>
-          <use href="#star30" x="90" y="0"></use>
-          <use href="#star30" x="120" y="0"></use>
-</g>
-
-</svg>
+        <svg class="stars5 stars5--mid" viewBox="0 0 150 26" preserveAspectRatio="xMinYMid meet" aria-hidden="true" focusable="false"><use href="#stars5"></use></svg>
         <p class="review-teaser-text">
           “My mate loved it. Perfect gift! I bought one as a 50th birthday present. I almost kept it for myself!”
           <small>— Matthew Jackson, Queensland</small>
@@ -424,17 +357,7 @@
       <div class="t-grid">
         <div class="t">
           <div class="t-stars">
-            <svg width="150" height="18" viewBox="0 0 150 26" aria-hidden="true" focusable="false" preserveAspectRatio="xMinYMid meet">
-
-  <g fill="black">
-          <use href="#star30" x="0" y="0"></use>
-          <use href="#star30" x="30" y="0"></use>
-          <use href="#star30" x="60" y="0"></use>
-          <use href="#star30" x="90" y="0"></use>
-          <use href="#star30" x="120" y="0"></use>
-</g>
-
-</svg>
+            <svg class="stars5 stars5--sm"  viewBox="0 0 150 26" preserveAspectRatio="xMinYMid meet" aria-hidden="true" focusable="false"><use href="#stars5"></use></svg>
           </div>
           “I bought a gorgeous wooden block from Noah. The most beautiful craftsmanship and so much care taken in its construction. It will be a treasure for a long time.”<br>
           <small>— Meg Eddy, Queensland</small>
@@ -442,17 +365,7 @@
 
         <div class="t">
           <div class="t-stars">
-            <svg width="150" height="18" viewBox="0 0 150 26" aria-hidden="true" focusable="false" preserveAspectRatio="xMinYMid meet">
-
-  <g fill="black">
-          <use href="#star30" x="0" y="0"></use>
-          <use href="#star30" x="30" y="0"></use>
-          <use href="#star30" x="60" y="0"></use>
-          <use href="#star30" x="90" y="0"></use>
-          <use href="#star30" x="120" y="0"></use>
-</g>
-
-</svg>
+            <svg class="stars5 stars5--sm"  viewBox="0 0 150 26" preserveAspectRatio="xMinYMid meet" aria-hidden="true" focusable="false"><use href="#stars5"></use></svg>
           </div>
           “Noah has produced an absolute masterpiece. The board is professionally finished with both handles and spill mote in place and also non slip rubber feet in place. The best value board on the market and will be back to buy more. Thanks Noah, great craftsmanship mate.”<br>
           <small>— Adam Dale, Queensland</small>
@@ -460,17 +373,7 @@
 
         <div class="t">
           <div class="t-stars">
-            <svg width="150" height="18" viewBox="0 0 150 26" aria-hidden="true" focusable="false" preserveAspectRatio="xMinYMid meet">
-
-  <g fill="black">
-          <use href="#star30" x="0" y="0"></use>
-          <use href="#star30" x="30" y="0"></use>
-          <use href="#star30" x="60" y="0"></use>
-          <use href="#star30" x="90" y="0"></use>
-          <use href="#star30" x="120" y="0"></use>
-</g>
-
-</svg>
+            <svg class="stars5 stars5--sm"  viewBox="0 0 150 26" preserveAspectRatio="xMinYMid meet" aria-hidden="true" focusable="false"><use href="#stars5"></use></svg>
           </div>
           “My mate loved it. Perfect gift! I bought one as a 50th birthday present. I almost kept it for myself!”<br>
           <small>— Matthew Jackson, Queensland</small>
@@ -478,17 +381,7 @@
 
         <div class="t">
           <div class="t-stars">
-            <svg width="150" height="18" viewBox="0 0 150 26" aria-hidden="true" focusable="false" preserveAspectRatio="xMinYMid meet">
-
-  <g fill="black">
-          <use href="#star30" x="0" y="0"></use>
-          <use href="#star30" x="30" y="0"></use>
-          <use href="#star30" x="60" y="0"></use>
-          <use href="#star30" x="90" y="0"></use>
-          <use href="#star30" x="120" y="0"></use>
-</g>
-
-</svg>
+            <svg class="stars5 stars5--sm"  viewBox="0 0 150 26" preserveAspectRatio="xMinYMid meet" aria-hidden="true" focusable="false"><use href="#stars5"></use></svg>
           </div>
           “I love my hand crafted chopping board! I like its artisan feeling with its quality finish. It looks beautiful in my kitchen and is functional and unique at the same time.”<br>
           <small>— Dan Ridgley Hewitt</small>
@@ -496,17 +389,7 @@
 
         <div class="t">
           <div class="t-stars">
-            <svg width="150" height="18" viewBox="0 0 150 26" aria-hidden="true" focusable="false" preserveAspectRatio="xMinYMid meet">
-
-  <g fill="black">
-          <use href="#star30" x="0" y="0"></use>
-          <use href="#star30" x="30" y="0"></use>
-          <use href="#star30" x="60" y="0"></use>
-          <use href="#star30" x="90" y="0"></use>
-          <use href="#star30" x="120" y="0"></use>
-</g>
-
-</svg>
+            <svg class="stars5 stars5--sm"  viewBox="0 0 150 26" preserveAspectRatio="xMinYMid meet" aria-hidden="true" focusable="false"><use href="#stars5"></use></svg>
           </div>
           “Sturdy, sleek and resistant. The perfect replacement to plastic chopping boards. Very happy to have bought one!”<br>
           <small>— Angelina Balaguer, Victoria</small>
@@ -582,76 +465,6 @@
         else if(scrolled >= 0.10) fire(10);
       },{passive:true});
     })();
-  
-    // COP#5.1: tap-to-zoom for images (uses current /images assets; hi-res can be added later via data-zoom-src)
-    (function(){
-      const modal = document.getElementById('imgZoom');
-      const target = document.getElementById('imgZoomTarget');
-      const caption = document.getElementById('imgZoomCaption');
-
-      function isZoomable(img){
-        if(!img) return false;
-        if(img.dataset.nozoom === "1") return false;
-        if(img.classList.contains('no-zoom')) return false;
-
-        // Avoid tiny icons/logos
-        const w = img.naturalWidth || img.width || 0;
-        const h = img.naturalHeight || img.height || 0;
-        if(w < 320 || h < 240) return false;
-
-        // Avoid accidental zoom inside links
-        if(img.closest('a')) return false;
-
-        return true;
-      }
-
-      function openZoom(img){
-        const src = img.dataset.zoomSrc || img.currentSrc || img.src;
-        target.src = src;
-        target.alt = img.alt || '';
-        caption.textContent = img.dataset.caption || img.alt || '';
-        modal.hidden = false;
-
-        // lock background scroll
-        document.documentElement.style.overflow = 'hidden';
-
-        // GA4 (optional)
-        if(typeof window.gtag === 'function'){
-          window.gtag('event','image_zoom_open',{
-            event_category:'engagement',
-            image_src: src,
-            image_alt: target.alt
-          });
-        }
-      }
-
-      function closeZoom(){
-        modal.hidden = true;
-        target.src = '';
-        caption.textContent = '';
-        document.documentElement.style.overflow = '';
-      }
-
-      window.addEventListener('load', function(){
-        document.querySelectorAll('img').forEach(function(img){
-          if(isZoomable(img)) img.classList.add('zoomable');
-        });
-      });
-
-      document.addEventListener('click', function(e){
-        const closeHit = e.target.closest('[data-close]');
-        if(closeHit){ closeZoom(); return; }
-
-        const img = e.target.closest('img');
-        if(!img || !isZoomable(img)) return;
-        openZoom(img);
-      });
-
-      document.addEventListener('keydown', function(e){
-        if(!modal.hidden && e.key === 'Escape') closeZoom();
-      });
-    })();
-
   </script>
 </body>
 </html>
