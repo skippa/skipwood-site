@@ -209,6 +209,22 @@
       color:var(--muted);
       margin:0 0 12px;
     }
+
+    .email-capture{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:6px;
+    }
+    .email-capture input{
+      flex:1;
+      min-width:240px;
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px solid rgba(0,0,0,.2);
+    }
+    .hidden{display:none;}
+
   </style>
 </head>
 
@@ -260,6 +276,32 @@
       <p class="trust-note">
         A solid 4.5 kg slab of sustainably sourced Australian hardwood — crafted, glued, sanded and finished by hand in Noah’s family workshop on the Gold Coast.
       </p>
+
+      <section class="card" style="margin-top:14px">
+        <h2 style="margin-top:0;font-size:20px">Not ready to order?</h2>
+        <p class="sub">Get a quiet heads-up when Noah finishes the next batch.</p>
+
+        <form name="newsletter"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field">
+
+          <input type="hidden" name="form-name" value="newsletter">
+          <p class="hidden">
+            <label>Don’t fill this out <input name="bot-field"></label>
+          </p>
+
+          <div class="email-capture">
+            <input type="email"
+                  name="email"
+                  placeholder="Your email address"
+                  required>
+            <button type="submit" class="btn">Notify me</button>
+          </div>
+        </form>
+      </section>
+
+
     </div>
 
     <section class="hero" aria-label="More views">
