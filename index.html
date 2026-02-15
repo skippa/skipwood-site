@@ -82,7 +82,6 @@
       line-height:1.35;
     }
 
-    /* NEW: stock line under the top CTA */
     .stock-cta{
       margin:8px 0 0;
       font-size:14.5px;
@@ -105,20 +104,12 @@
       gap:4px;
       margin-bottom:8px;
     }
-    .price{
-      font-size:21px;
-      font-weight:650;
-    }
     .stock-note{
-      font-size:15px;
-      color:var(--muted);
-    }
-    .trust-note{
-      font-size:16.5px;
+      font-size:16px;
       color:var(--muted);
       margin:10px 0 0;
-      max-width:560px;
     }
+
     .hero-review{
       margin:6px 0 12px;
       font-size:16px;
@@ -135,13 +126,12 @@
       font-size:14px;
       margin-top:2px;
     }
-    @media(min-width:640px){
-      .hero-intro .price-line{
-        flex-direction:row;
-        align-items:center;
-        gap:10px;
-      }
-      .stock-note{font-size:14px;}
+
+    .trust-note{
+      font-size:16.5px;
+      color:var(--muted);
+      margin:10px 0 0;
+      max-width:560px;
     }
 
     .hero{margin-top:8px}
@@ -235,7 +225,6 @@
     }
     .hidden{display:none;}
 
-    /* FAQ */
     .faq details{
       background:var(--card);
       border-radius:14px;
@@ -275,7 +264,7 @@
       <img class="logo" src="/images/logo.png" alt="Skipsey’s Woodworking logo" />
       <div>
         <strong>SKIPSEY’S WOODWORKING</strong><br />
-        <span class="sub">Handmade hardwood boards – made by a 16-year-old Gold Coast maker.</span>
+        <span class="sub">Made by a 16-year-old maker on the Gold Coast.</span>
       </div>
     </header>
 
@@ -286,8 +275,8 @@
     </section>
 
     <div class="hero-intro">
-      <p class="eyebrow">Handmade on the Gold Coast • Small batches</p>
-      <h1>Handmade Australian hardwood<br />chopping board</h1>
+      <p class="eyebrow">Gold Coast • Small batches</p>
+      <h1>Australian hardwood<br />chopping board</h1>
 
       <a href="#buy" class="btn" id="ctaTop">Order now – $139 delivered</a>
       <p class="stock-cta">In stock — 10 available from current batch.</p>
@@ -295,9 +284,7 @@
         Dispatch is typically within 3–5 business days when in stock. If we’re between batches, we’ll email you within 24 hours with the ETA.
       </p>
 
-      <div class="price-line" style="margin-top: 14px;">
-        <span class="stock-note">50+ boards sold Australia-wide — each one unique.</span>
-      </div>
+      <p class="stock-note">50+ sold across Australia — each one unique.</p>
 
       <div class="hero-review">
         <span class="stars" aria-hidden="true">
@@ -316,11 +303,12 @@
       </div>
 
       <p class="trust-note">
-        A solid 4.5 kg slab of sustainably sourced Australian hardwood — crafted, glued, sanded and finished by hand in Noah’s family workshop on the Gold Coast.
+        A solid 4.5 kg slab of sustainably sourced Australian hardwood — crafted, glued, sanded and finished by hand in Noah’s family workshop.
       </p>
 
       <div class="pill">Seen us on Facebook? You’re in the right place 👋</div>
 
+      <!-- rest of file unchanged from your current version -->
       <section class="card" style="margin-top:14px">
         <h2 style="margin-top:0;font-size:20px">Not ready to order?</h2>
         <p class="sub">Get a quiet heads-up when Noah finishes the next batch.</p>
@@ -346,6 +334,9 @@
         </form>
       </section>
     </div>
+
+    <!-- NOTE: everything below here remains identical to your current file -->
+    <!-- (keep your existing sections: More views, Why this board, Order & delivery, Testimonials, FAQ, Care, About, Footer, GA tracking) -->
 
     <section class="hero" aria-label="More views">
       <div class="hero-main">
@@ -575,7 +566,6 @@
     document.getElementById('ctaBuy').addEventListener('click',()=>track('mid'));
     document.getElementById('ctaBottom').addEventListener('click',()=>track('bottom'));
 
-    // Track FAQ opens (helps you see what FB traffic cares about)
     document.querySelectorAll('.faq details').forEach((d)=>{
       d.addEventListener('toggle',()=>{
         if(d.open){
