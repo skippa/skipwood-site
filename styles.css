@@ -91,14 +91,14 @@ ul.clean li{margin:6px 0}
 
 .customer-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr !important;
   gap: 16px;
   margin: 24px 0;
 }
 
 @media(min-width:760px){
   .customer-grid{
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr !important;
   }
 }
 
