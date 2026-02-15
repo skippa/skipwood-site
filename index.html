@@ -30,13 +30,16 @@
       --bg:#f7efe3;
       --ink:#1f1a14;
       --muted:#6b5f54;
-      --accent:#2f2a24;
       --btn:#1d1a16;
       --btn-ink:#fff;
       --card:#ffffff;
-      --gap:10px;
       --radius:16px;
       --shadow:0 6px 20px rgba(0,0,0,.08);
+
+      /* Type discipline: only three tokens */
+      --fs-body:19px;   /* minimum readable size */
+      --fs-small:16px;  /* helper text only */
+      --lh:1.55;
     }
 
     *{box-sizing:border-box}
@@ -45,111 +48,48 @@
       padding:0;
       background:var(--bg);
       color:var(--ink);
-      font:20px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+      font:var(--fs-body)/var(--lh) system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
     }
     a{color:inherit}
     img{max-width:100%;display:block;border-radius:12px}
 
+    /* Layout */
     .wrap{max-width:980px;margin:0 auto;padding:18px 16px 24px}
-
     header{display:flex;align-items:center;gap:12px;margin-bottom:8px}
     header img.logo{width:44px;height:44px;border-radius:50%}
 
-    h1{font-size:clamp(30px,6.2vw,46px);line-height:1.08;margin:8px 0 10px}
-    h2{font-size:24px;margin:0 0 10px}
+    h1{font-size:clamp(32px,6.2vw,46px);line-height:1.08;margin:10px 0 12px}
+    h2{font-size:24px;line-height:1.2;margin:0 0 12px}
+    p{margin:10px 0}
 
-    .sub{color:var(--muted);margin:0 0 4px;font-size:17px}
+    /* Only allowed text modifiers */
+    .muted{color:var(--muted)}
+    .small{font-size:var(--fs-small);line-height:1.45}
 
+    /* Components */
     .btn{
       display:inline-block;
       background:var(--btn);
       color:var(--btn-ink);
       padding:15px 18px;
       border-radius:14px;
-      font-weight:650;
+      font-weight:700;
       box-shadow:var(--shadow);
       text-decoration:none;
-      font-size:17px;
       border:0;
       cursor:pointer;
     }
     .btn:active{transform:translateY(1px)}
-
-    .shipping-note{
-      margin:8px 0 0;
-      font-size:16.5px;
-      color:var(--muted);
-      line-height:1.35;
-    }
-
-    .hero-intro{margin-bottom:10px}
-    .eyebrow{
-      font-size:14px;
-      letter-spacing:.03em;
-      text-transform:uppercase;
-      color:var(--muted);
-      margin:0 0 6px;
-    }
-    .hero-intro .price-line{
-      display:flex;
-      flex-direction:column;
-      gap:4px;
-      margin-bottom:8px;
-    }
-    .price{
-      font-size:21px;
-      font-weight:650;
-    }
-    .stock-note{
-      font-size:15px;
-      color:var(--muted);
-    }
-    .trust-note{
-      font-size:16.5px;
-      color:var(--muted);
-      margin:10px 0 0;
-      max-width:560px;
-    }
-    .hero-review{
-      margin:6px 0 12px;
-      font-size:16px;
-    }
-    .hero-review .stars{
-      display:block;
-      font-size:15px;
-      letter-spacing:2px;
-      margin-bottom:2px;
-    }
-    .hero-review small{
-      display:block;
-      color:var(--muted);
-      font-size:15.5px;
-      margin-top:2px;
-    }
-    @media(min-width:640px){
-      .hero-intro .price-line{
-        flex-direction:row;
-        align-items:center;
-        gap:10px;
-      }
-      .stock-note{font-size:14px;}
-    }
 
     .hero{margin-top:8px}
     .hero-main{background:var(--card);padding:10px;border-radius:var(--radius);box-shadow:var(--shadow)}
     .thumbs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
     .thumbs img{height:140px;object-fit:cover}
 
-    .cue{display:flex;align-items:center;justify-content:center;margin:14px 0 6px;color:var(--muted);font-size:13px;gap:8px}
-    .chev{width:10px;height:10px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);animation:bounce 1.6s infinite}
-    @keyframes bounce{
-      0%,100%{transform:translateY(0) rotate(45deg)}
-      50%{transform:translateY(6px) rotate(45deg)}
-    }
-
     section{margin:26px 0}
     .card{background:var(--card);padding:14px;border-radius:var(--radius);box-shadow:var(--shadow)}
-    .split{display:grid;grid-template-columns:1fr;gap:var(--gap)}
+
+    .split{display:grid;grid-template-columns:1fr;gap:10px}
     @media(min-width:760px){ .split{grid-template-columns:1.1fr .9fr} }
 
     ul.clean{margin:0;padding-left:18px}
@@ -165,57 +105,19 @@
       padding:12px;
       border-radius:14px;
       box-shadow:var(--shadow);
-      font-size:16.5px;
     }
-    .t small{color:var(--muted);font-size:14px}
-    .t-stars{margin-bottom:4px;}
+    .t-stars{margin-bottom:6px;}
     .t-stars svg{display:block;}
+    small{font-size:var(--fs-small);line-height:1.35;color:var(--muted)}
 
-    footer{color:var(--muted);font-size:13px;margin:40px 0 20px}
+    footer{color:var(--muted);font-size:var(--fs-small);margin:40px 0 20px}
 
-    .review-teaser{
-      display:flex;
-      flex-direction:column;
-      align-items:flex-start;
-      gap:6px;
-      font-size:16.5px;
-      line-height:1.45;
-      margin:12px 0 10px;
-    }
-    .review-teaser-text{ margin:0; }
-    .review-teaser small{
-      display:block;
-      color:var(--muted);
-      font-size:14px;
-      margin-top:2px;
-    }
-    .review-teaser svg{ flex-shrink:0; }
-
-    .trust-row{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin:10px 0 6px;
-      flex-wrap:wrap;
-    }
-    .trust-row img{
-      height:30px;
-      width:auto;
-      object-fit:contain;
-      border-radius:0;
-      display:block;
-    }
-    .trust-copy{
-      font-size:16.5px;
-      color:var(--muted);
-      margin:0 0 12px;
-    }
-
+    /* Form */
     .email-capture{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
-      margin-top:6px;
+      margin-top:10px;
     }
     .email-capture input{
       flex:1;
@@ -223,6 +125,7 @@
       padding:12px 14px;
       border-radius:12px;
       border:1px solid rgba(0,0,0,.2);
+      font:inherit;
     }
     .hidden{display:none;}
 
@@ -236,26 +139,27 @@
     }
     .faq summary{
       cursor:pointer;
-      font-weight:650;
+      font-weight:700;
       list-style:none;
       outline:none;
     }
     .faq summary::-webkit-details-marker{display:none;}
-    .faq .ans{
-      color:var(--muted);
-      margin:8px 0 0;
-      font-size:17.5px;
-      line-height:1.5;
-    }
+    .faq .ans{color:var(--muted)}
+
+    /* Pills + cue */
     .pill{
       display:inline-block;
       background:rgba(0,0,0,.06);
       border:1px solid rgba(0,0,0,.08);
       border-radius:999px;
       padding:8px 12px;
-      font-size:14.5px;
-      color:var(--muted);
       margin:10px 0 0;
+    }
+    .cue{display:flex;align-items:center;justify-content:center;margin:14px 0 6px;color:var(--muted);gap:8px}
+    .chev{width:10px;height:10px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);animation:bounce 1.6s infinite}
+    @keyframes bounce{
+      0%,100%{transform:translateY(0) rotate(45deg)}
+      50%{transform:translateY(6px) rotate(45deg)}
     }
   </style>
 </head>
@@ -266,7 +170,7 @@
       <img class="logo" src="/images/logo.png" alt="Skipsey’s Woodworking logo" />
       <div>
         <strong>SKIPSEY’S WOODWORKING</strong><br />
-        <span class="sub">Premium hardwood boards – made by a 17-year-old Gold Coast maker.</span>
+        <span class="muted small">Handmade hardwood boards — made by a 17-year-old on the Gold Coast.</span>
       </div>
     </header>
 
@@ -281,16 +185,14 @@
 
       <a href="#buy" class="btn" id="ctaTop">Order now – $139 delivered</a>
 
-      <p class="shipping-note">
+      <p class="muted small">
         Dispatch is typically within 3–5 business days when in stock. If we’re between regular batches, we’ll email you within 24 hours with the ETA.
       </p>
 
-      <div class="price-line" style="margin-top: 14px;">
-        <span class="stock-note">90+ boards sold Australia-wide — each one unique.</span>
-      </div>
+      <p class="muted">90+ boards sold across Australia — each one unique.</p>
 
       <div class="hero-review">
-        <span class="stars" aria-hidden="true">
+        <div class="t-stars" aria-hidden="true">
           <svg width="120" height="20" viewBox="0 0 150 26" focusable="false">
             <g fill="black">
               <path d="M15 0l4.045 8.19L28 9.51l-6.5 6.39L23.09 25 15 20.76 6.91 25l1.59-9.1L2 9.51l8.955-1.32L15 0z"/>
@@ -300,20 +202,20 @@
               <path d="M135 0l4.045 8.19L148 9.51l-6.5 6.39L143.09 25 135 20.76 126.91 25l1.59-9.1L122 9.51l8.955-1.32L135 0z"/>
             </g>
           </svg>
-        </span>
-        <span>“Noah has produced an absolute masterpiece. The best value board on the market and will be back to buy more.”</span>
+        </div>
+        <p>“Noah has produced an absolute masterpiece. The best value board on the market and will be back to buy more.”</p>
         <small>— Adam Dale, Queensland</small>
       </div>
 
-      <p class="trust-note">
+      <p class="muted">
         A solid 4.5 kg slab of sustainably sourced Australian hardwood — crafted, glued, sanded and finished by hand in Noah’s family workshop on the Gold Coast.
       </p>
 
-      <div class="pill">Seen us on Facebook? You’re in the right place 👋</div>
+      <div class="pill muted small">Seen us on Facebook? You’re in the right place 👋</div>
 
       <section class="card" style="margin-top:14px">
-        <h2 style="margin-top:0;font-size:20px">Not ready to order?</h2>
-        <p class="sub">Get a quiet heads-up when Noah finishes the next regular batch.</p>
+        <h2>Not ready to order?</h2>
+        <p class="muted">Get a quiet heads-up when Noah finishes the next regular batch.</p>
 
         <form name="newsletter"
           method="POST"
@@ -347,12 +249,12 @@
     </section>
 
     <div class="cue">
-      <span>Scroll for details</span><span class="chev"></span>
+      <span class="small">Scroll for details</span><span class="chev"></span>
     </div>
 
     <section id="details" class="split">
       <div class="card">
-        <h2 style="margin-top:0">Why this board</h2>
+        <h2>Why this board</h2>
         <ul class="clean">
           <li>Approx <strong>500 × 300 × 40 mm</strong> (about 4.5 kg).</li>
           <li>Mixed sustainably sourced Australian hardwoods; unique grain on every board.</li>
@@ -373,33 +275,33 @@
     </section>
 
     <section class="card" id="buy">
-      <h2 style="margin-top:0">Order & delivery</h2>
-      <p>$139 delivered to anywhere in Australia. Boards are made in regular batches and each one is unique.</p>
+      <h2>Order & delivery</h2>
+      <p class="muted">$139 delivered to anywhere in Australia. Boards are made in regular batches and each one is unique.</p>
 
       <div class="review-teaser" aria-label="Customer review">
-        <svg width="120" height="20" viewBox="0 0 150 26" aria-hidden="true" focusable="false">
-          <g fill="black">
-            <path d="M15 0l4.045 8.19L28 9.51l-6.5 6.39L23.09 25 15 20.76 6.91 25l1.59-9.1L2 9.51l8.955-1.32L15 0z"/>
-            <path d="M45 0l4.045 8.19L58 9.51l-6.5 6.39L53.09 25 45 20.76 36.91 25l1.59-9.1L32 9.51l8.955-1.32L45 0z"/>
-            <path d="M75 0l4.045 8.19L88 9.51l-6.5 6.39L83.09 25 75 20.76 66.91 25l1.59-9.1L62 9.51l8.955-1.32L75 0z"/>
-            <path d="M105 0l4.045 8.19L118 9.51l-6.5 6.39L113.09 25 105 20.76 96.91 25l1.59-9.1L92 9.51l8.955-1.32L105 0z"/>
-            <path d="M135 0l4.045 8.19L148 9.51l-6.5 6.39L143.09 25 135 20.76 126.91 25l1.59-9.1L122 9.51l8.955-1.32L135 0z"/>
-          </g>
-        </svg>
-        <p class="review-teaser-text">
-          “My mate loved it. Perfect gift! I bought one as a 50th birthday present. I almost kept it for myself!”
-          <small>— Matthew Jackson, Queensland</small>
-        </p>
+        <div class="t-stars" aria-hidden="true">
+          <svg width="120" height="20" viewBox="0 0 150 26" focusable="false">
+            <g fill="black">
+              <path d="M15 0l4.045 8.19L28 9.51l-6.5 6.39L23.09 25 15 20.76 6.91 25l1.59-9.1L2 9.51l8.955-1.32L15 0z"/>
+              <path d="M45 0l4.045 8.19L58 9.51l-6.5 6.39L53.09 25 45 20.76 36.91 25l1.59-9.1L32 9.51l8.955-1.32L45 0z"/>
+              <path d="M75 0l4.045 8.19L88 9.51l-6.5 6.39L83.09 25 75 20.76 66.91 25l1.59-9.1L62 9.51l8.955-1.32L75 0z"/>
+              <path d="M105 0l4.045 8.19L118 9.51l-6.5 6.39L113.09 25 105 20.76 96.91 25l1.59-9.1L92 9.51l8.955-1.32L105 0z"/>
+              <path d="M135 0l4.045 8.19L148 9.51l-6.5 6.39L143.09 25 135 20.76 126.91 25l1.59-9.1L122 9.51l8.955-1.32L135 0z"/>
+            </g>
+          </svg>
+        </div>
+        <p>“My mate loved it. Perfect gift! I bought one as a 50th birthday present. I almost kept it for myself!”</p>
+        <small>— Matthew Jackson, Queensland</small>
       </div>
 
       <div class="trust-row" aria-label="Payment methods">
         <img src="/images/logo-stripe.svg" alt="Stripe secure payment" />
       </div>
 
-      <p class="trust-copy">Secure, encrypted payment via Stripe.</p>
+      <p class="muted small">Secure, encrypted payment via Stripe.</p>
 
       <a href="https://buy.stripe.com/28E28q9mTdzU2Aa7Dt6Zy01" class="btn" id="ctaBuy">Buy now – $139 delivered</a>
-      <p class="shipping-note">Questions before you buy? Check the FAQ below (or join the notify list at the top).</p>
+      <p class="muted small">Questions before you buy? Check the FAQ below (or join the notify list at the top).</p>
     </section>
 
     <section>
@@ -565,7 +467,6 @@
     document.getElementById('ctaBuy').addEventListener('click',()=>track('mid'));
     document.getElementById('ctaBottom').addEventListener('click',()=>track('bottom'));
 
-    // Track FAQ opens
     document.querySelectorAll('.faq details').forEach((d)=>{
       d.addEventListener('toggle',()=>{
         if(d.open){
