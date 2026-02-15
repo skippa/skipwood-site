@@ -89,6 +89,27 @@ ul.clean li{margin:6px 0}
   box-shadow:var(--shadow);
 }
 
+.customer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+@media(min-width:760px){
+  .customer-grid{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.customer-grid img{
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  display: block;
+}
+
+
 /* Stars wrapper */
 .stars{margin:6px 0}
 .stars svg{display:block}
@@ -161,3 +182,22 @@ footer{color:var(--muted);font-size:var(--fs-small);margin:40px 0 20px}
   border-radius:10px;
   display:block;
 }
+
+.customer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.customer-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+
+.proof-line {
+  margin-top: 8px;
+}
+
