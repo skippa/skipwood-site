@@ -62,6 +62,15 @@ p{margin:10px 0}
 section{margin:26px 0}
 .card{background:var(--card);padding:14px;border-radius:var(--radius);box-shadow:var(--shadow)}
 
+/* Subtle testimonial elevation */
+.review-soft{
+  background:var(--card);
+  border:1px solid rgba(0,0,0,.05);
+  border-radius:var(--radius);
+  padding:14px;
+  margin:14px 0;
+}
+
 .split{display:grid;grid-template-columns:1fr;gap:10px}
 @media(min-width:760px){ .split{grid-template-columns:1.1fr .9fr} }
 
