@@ -1,10 +1,11 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>Skipsey’s Woodworking – Handmade Australian Hardwood Chopping Board</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Premium handcrafted Australian hardwood chopping board made from sustainably sourced Australian hardwoods. Around 4.5 kg, approx 500 × 300 × 40 mm. $139 delivered Australia-wide. Handcrafted by 17-year-old Noah on the Gold Coast." />
+  <meta name="description" content="Premium handcrafted Australian hardwood chopping board. Around 4.5 kg, approx 500 × 300 × 40 mm. $139 delivered Australia-wide. Handcrafted by 17-year-old Noah on the Gold Coast." />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Handmade Australian hardwood chopping board — $139 delivered" />
@@ -16,6 +17,9 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
 
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles.css" />
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-S45N192JX9"></script>
   <script>
@@ -24,144 +28,6 @@
     gtag('js', new Date());
     gtag('config', 'G-S45N192JX9');
   </script>
-
-  <style>
-    :root{
-      --bg:#f7efe3;
-      --ink:#1f1a14;
-      --muted:#6b5f54;
-      --btn:#1d1a16;
-      --btn-ink:#fff;
-      --card:#ffffff;
-      --radius:16px;
-      --shadow:0 6px 20px rgba(0,0,0,.08);
-
-      /* Type discipline: only three tokens */
-      --fs-body:19px;   /* minimum readable size */
-      --fs-small:16px;  /* helper text only */
-      --lh:1.55;
-    }
-
-    *{box-sizing:border-box}
-    html,body{
-      margin:0;
-      padding:0;
-      background:var(--bg);
-      color:var(--ink);
-      font:var(--fs-body)/var(--lh) system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
-    }
-    a{color:inherit}
-    img{max-width:100%;display:block;border-radius:12px}
-
-    /* Layout */
-    .wrap{max-width:980px;margin:0 auto;padding:18px 16px 24px}
-    header{display:flex;align-items:center;gap:12px;margin-bottom:8px}
-    header img.logo{width:44px;height:44px;border-radius:50%}
-
-    h1{font-size:clamp(32px,6.2vw,46px);line-height:1.08;margin:10px 0 12px}
-    h2{font-size:24px;line-height:1.2;margin:0 0 12px}
-    p{margin:10px 0}
-
-    /* Only allowed text modifiers */
-    .muted{color:var(--muted)}
-    .small{font-size:var(--fs-small);line-height:1.45}
-
-    /* Components */
-    .btn{
-      display:inline-block;
-      background:var(--btn);
-      color:var(--btn-ink);
-      padding:15px 18px;
-      border-radius:14px;
-      font-weight:700;
-      box-shadow:var(--shadow);
-      text-decoration:none;
-      border:0;
-      cursor:pointer;
-    }
-    .btn:active{transform:translateY(1px)}
-
-    .hero{margin-top:8px}
-    .hero-main{background:var(--card);padding:10px;border-radius:var(--radius);box-shadow:var(--shadow)}
-    .thumbs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
-    .thumbs img{height:140px;object-fit:cover}
-
-    section{margin:26px 0}
-    .card{background:var(--card);padding:14px;border-radius:var(--radius);box-shadow:var(--shadow)}
-
-    .split{display:grid;grid-template-columns:1fr;gap:10px}
-    @media(min-width:760px){ .split{grid-template-columns:1.1fr .9fr} }
-
-    ul.clean{margin:0;padding-left:18px}
-    ul.clean li{margin:6px 0}
-
-    .sprinkle{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
-    @media(min-width:760px){ .sprinkle{grid-template-columns:1fr 1fr 1fr} }
-
-    .t-grid{display:grid;grid-template-columns:1fr;gap:10px}
-    @media(min-width:760px){ .t-grid{grid-template-columns:1fr 1fr 1fr} }
-    .t{
-      background:var(--card);
-      padding:12px;
-      border-radius:14px;
-      box-shadow:var(--shadow);
-    }
-    .t-stars{margin-bottom:6px;}
-    .t-stars svg{display:block;}
-    small{font-size:var(--fs-small);line-height:1.35;color:var(--muted)}
-
-    footer{color:var(--muted);font-size:var(--fs-small);margin:40px 0 20px}
-
-    /* Form */
-    .email-capture{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:10px;
-    }
-    .email-capture input{
-      flex:1;
-      min-width:240px;
-      padding:12px 14px;
-      border-radius:12px;
-      border:1px solid rgba(0,0,0,.2);
-      font:inherit;
-    }
-    .hidden{display:none;}
-
-    /* FAQ */
-    .faq details{
-      background:var(--card);
-      border-radius:14px;
-      box-shadow:var(--shadow);
-      padding:12px 14px;
-      margin:10px 0;
-    }
-    .faq summary{
-      cursor:pointer;
-      font-weight:700;
-      list-style:none;
-      outline:none;
-    }
-    .faq summary::-webkit-details-marker{display:none;}
-    .faq .ans{color:var(--muted)}
-
-    /* Pills + cue */
-    .pill{
-      display:inline-block;
-      background:rgba(0,0,0,.06);
-      border:1px solid rgba(0,0,0,.08);
-      border-radius:999px;
-      padding:8px 12px;
-      margin:10px 0 0;
-    }
-    .cue{display:flex;align-items:center;justify-content:center;margin:14px 0 6px;color:var(--muted);gap:8px}
-    .chev{width:10px;height:10px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);animation:bounce 1.6s infinite}
-    @keyframes bounce{
-      0%,100%{transform:translateY(0) rotate(45deg)}
-      50%{transform:translateY(6px) rotate(45deg)}
-    }
-  </style>
 </head>
 
 <body>
@@ -170,7 +36,7 @@
       <img class="logo" src="/images/logo.png" alt="Skipsey’s Woodworking logo" />
       <div>
         <strong>SKIPSEY’S WOODWORKING</strong><br />
-        <span class="muted small">Handmade hardwood boards — made by a 17-year-old on the Gold Coast.</span>
+        <span class="muted small">Made by a 17-year-old woodworker on the Gold Coast.</span>
       </div>
     </header>
 
@@ -185,14 +51,10 @@
 
       <a href="#buy" class="btn" id="ctaTop">Order now – $139 delivered</a>
 
-      <p class="muted small">
-        Dispatch is typically within 3–5 business days when in stock. If we’re between regular batches, we’ll email you within 24 hours with the ETA.
-      </p>
-
       <p class="muted">90+ boards sold across Australia — each one unique.</p>
 
       <div class="hero-review">
-        <div class="t-stars" aria-hidden="true">
+        <div class="stars" aria-hidden="true">
           <svg width="120" height="20" viewBox="0 0 150 26" focusable="false">
             <g fill="black">
               <path d="M15 0l4.045 8.19L28 9.51l-6.5 6.39L23.09 25 15 20.76 6.91 25l1.59-9.1L2 9.51l8.955-1.32L15 0z"/>
@@ -211,7 +73,7 @@
         A solid 4.5 kg slab of sustainably sourced Australian hardwood — crafted, glued, sanded and finished by hand in Noah’s family workshop on the Gold Coast.
       </p>
 
-      <div class="pill muted small">Seen us on Facebook? You’re in the right place 👋</div>
+      <p class="pill muted small">Seen us on Facebook? You’re in the right place 👋</p>
 
       <section class="card" style="margin-top:14px">
         <h2>Not ready to order?</h2>
@@ -275,11 +137,14 @@
     </section>
 
     <section class="card" id="buy">
-      <h2>Order & delivery</h2>
-      <p class="muted">$139 delivered to anywhere in Australia. Boards are made in regular batches and each one is unique.</p>
+      <h2>Order &amp; delivery</h2>
+      <p class="muted">
+        $139 delivered to anywhere in Australia. Boards are made in regular batches and each one is unique.
+        We’ll usually ship your order next day.
+      </p>
 
       <div class="review-teaser" aria-label="Customer review">
-        <div class="t-stars" aria-hidden="true">
+        <div class="stars" aria-hidden="true">
           <svg width="120" height="20" viewBox="0 0 150 26" focusable="false">
             <g fill="black">
               <path d="M15 0l4.045 8.19L28 9.51l-6.5 6.39L23.09 25 15 20.76 6.91 25l1.59-9.1L2 9.51l8.955-1.32L15 0z"/>
@@ -295,7 +160,7 @@
       </div>
 
       <div class="trust-row" aria-label="Payment methods">
-        <img src="/images/logo-stripe.svg" alt="Stripe secure payment" />
+        <img src="/images/powered-by-stripe.png" alt="Powered by Stripe" />
       </div>
 
       <p class="muted small">Secure, encrypted payment via Stripe.</p>
@@ -308,8 +173,8 @@
       <h2>What people say</h2>
       <div class="t-grid">
         <div class="t">
-          <div class="t-stars">
-            <svg width="108" height="18" viewBox="0 0 150 26" aria-hidden="true" focusable="false">
+          <div class="stars" aria-hidden="true">
+            <svg width="108" height="18" viewBox="0 0 150 26" focusable="false">
               <g fill="black">
                 <path d="M15 0l4.045 8.19L28 9.51l-6.5 6.39L23.09 25 15 20.76 6.91 25l1.59-9.1L2 9.51l8.955-1.32L15 0z"/>
                 <path d="M45 0l4.045 8.19L58 9.51l-6.5 6.39L53.09 25 45 20.76 36.91 25l1.59-9.1L32 9.51l8.955-1.32L45 0z"/>
@@ -324,8 +189,8 @@
         </div>
 
         <div class="t">
-          <div class="t-stars">
-            <svg width="108" height="18" viewBox="0 0 150 26" aria-hidden="true" focusable="false">
+          <div class="stars" aria-hidden="true">
+            <svg width="108" height="18" viewBox="0 0 150 26" focusable="false">
               <g fill="black">
                 <path d="M15 0l4.045 8.19L28 9.51l-6.5 6.39L23.09 25 15 20.76 6.91 25l1.59-9.1L2 9.51l8.955-1.32L15 0z"/>
                 <path d="M45 0l4.045 8.19L58 9.51l-6.5 6.39L53.09 25 45 20.76 36.91 25l1.59-9.1L32 9.51l8.955-1.32L45 0z"/>
@@ -340,8 +205,8 @@
         </div>
 
         <div class="t">
-          <div class="t-stars">
-            <svg width="108" height="18" viewBox="0 0 150 26" aria-hidden="true" focusable="false">
+          <div class="stars" aria-hidden="true">
+            <svg width="108" height="18" viewBox="0 0 150 26" focusable="false">
               <g fill="black">
                 <path d="M15 0l4.045 8.19L28 9.51l-6.5 6.39L23.09 25 15 20.76 6.91 25l1.59-9.1L2 9.51l8.955-1.32L15 0z"/>
                 <path d="M45 0l4.045 8.19L58 9.51l-6.5 6.39L53.09 25 45 20.76 36.91 25l1.59-9.1L32 9.51l8.955-1.32L45 0z"/>
@@ -356,8 +221,8 @@
         </div>
 
         <div class="t">
-          <div class="t-stars">
-            <svg width="108" height="18" viewBox="0 0 150 26" aria-hidden="true" focusable="false">
+          <div class="stars" aria-hidden="true">
+            <svg width="108" height="18" viewBox="0 0 150 26" focusable="false">
               <g fill="black">
                 <path d="M15 0l4.045 8.19L28 9.51l-6.5 6.39L23.09 25 15 20.76 6.91 25l1.59-9.1L2 9.51l8.955-1.32L15 0z"/>
                 <path d="M45 0l4.045 8.19L58 9.51l-6.5 6.39L53.09 25 45 20.76 36.91 25l1.59-9.1L32 9.51l8.955-1.32L45 0z"/>
@@ -372,8 +237,8 @@
         </div>
 
         <div class="t">
-          <div class="t-stars">
-            <svg width="108" height="18" viewBox="0 0 150 26" aria-hidden="true" focusable="false">
+          <div class="stars" aria-hidden="true">
+            <svg width="108" height="18" viewBox="0 0 150 26" focusable="false">
               <g fill="black">
                 <path d="M15 0l4.045 8.19L28 9.51l-6.5 6.39L23.09 25 15 20.76 6.91 25l1.59-9.1L2 9.51l8.955-1.32L15 0z"/>
                 <path d="M45 0l4.045 8.19L58 9.51l-6.5 6.39L53.09 25 45 20.76 36.91 25l1.59-9.1L32 9.51l8.955-1.32L45 0z"/>
@@ -414,7 +279,7 @@
 
       <details>
         <summary>How long does shipping take?</summary>
-        <p class="ans">Once dispatched, Australia Post transit times vary by location. Dispatch is usually within 3–5 business days when in stock — if we’re between regular batches we’ll email you within 24 hours with the ETA.</p>
+        <p class="ans">We usually ship next business day. Australia Post transit times vary by location.</p>
       </details>
 
       <details>
