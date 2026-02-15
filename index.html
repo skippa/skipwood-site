@@ -2,21 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Skipsey’s Woodworking – Handmade Australian Hardwood Chopping Board</title>
+  <title>Skipsey’s Woodworking – Australian Hardwood Chopping Board</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Premium handcrafted Australian hardwood chopping board made from sustainably sourced Australian hardwoods. Around 4.5 kg, approx 500 × 300 × 40 mm. $139 delivered Australia-wide. Handcrafted by 16-year-old Noah on the Gold Coast." />
+  <meta name="description" content="Handcrafted Australian hardwood chopping board. Around 4.5 kg, approx 500 × 300 × 40 mm. $139 delivered Australia-wide. Made by 17-year-old Noah on the Gold Coast." />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Handmade Australian hardwood chopping board — $139 delivered" />
-  <meta property="og:description" content="Premium handmade board crafted by 16-year-old Noah on the Gold Coast." />
+  <meta property="og:title" content="Australian hardwood chopping board — $139 delivered" />
+  <meta property="og:description" content="Solid handcrafted board made by 17-year-old Noah on the Gold Coast." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://skipseywoodworking.com/images/hero-fb-share.jpg" />
   <meta property="og:url" content="https://skipseywoodworking.com/" />
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
 
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-S45N192JX9"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -29,12 +26,10 @@
     :root{
       --bg:#f7efe3;
       --ink:#1f1a14;
-      --muted:#6b5f54;
-      --accent:#2f2a24;
+      --muted:#5c5248;
       --btn:#1d1a16;
       --btn-ink:#fff;
       --card:#ffffff;
-      --gap:10px;
       --radius:16px;
       --shadow:0 6px 20px rgba(0,0,0,.08);
     }
@@ -45,559 +40,140 @@
       padding:0;
       background:var(--bg);
       color:var(--ink);
-      font:18.5px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+      font:20px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
     }
-    a{color:inherit}
-    img{max-width:100%;display:block;border-radius:12px}
 
-    .wrap{max-width:980px;margin:0 auto;padding:18px 16px 24px}
+    .wrap{max-width:980px;margin:0 auto;padding:22px 18px 32px}
 
-    header{display:flex;align-items:center;gap:12px;margin-bottom:8px}
-    header img.logo{width:44px;height:44px;border-radius:50%}
+    header{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    header img.logo{width:48px;height:48px;border-radius:50%}
 
-    h1{font-size:clamp(30px,6.2vw,46px);line-height:1.08;margin:8px 0 10px}
-    h2{font-size:24px;margin:0 0 10px}
+    h1{font-size:clamp(34px,7vw,48px);line-height:1.1;margin:14px 0}
+    h2{font-size:26px;margin:0 0 12px}
 
-    .sub{color:var(--muted);margin:0 0 4px;font-size:15.5px}
+    .sub{color:var(--muted);font-size:18px}
 
     .btn{
       display:inline-block;
       background:var(--btn);
       color:var(--btn-ink);
-      padding:15px 18px;
+      padding:18px 22px;
       border-radius:14px;
-      font-weight:650;
-      box-shadow:var(--shadow);
+      font-weight:700;
+      font-size:19px;
       text-decoration:none;
-      font-size:17px;
-      border:0;
-      cursor:pointer;
-    }
-    .btn:active{transform:translateY(1px)}
-
-    .shipping-note{
-      margin:8px 0 0;
-      font-size:14.5px;
-      color:var(--muted);
-      line-height:1.35;
+      box-shadow:var(--shadow);
     }
 
     .stock-cta{
-      margin:8px 0 0;
-      font-size:14.5px;
+      margin-top:10px;
+      font-size:18px;
       color:var(--muted);
-      line-height:1.35;
       font-weight:600;
     }
 
-    .hero-intro{margin-bottom:10px}
-    .eyebrow{
-      font-size:14px;
-      letter-spacing:.03em;
-      text-transform:uppercase;
+    .shipping-note{
+      margin-top:8px;
+      font-size:18px;
       color:var(--muted);
-      margin:0 0 6px;
-    }
-    .hero-intro .price-line{
-      display:flex;
-      flex-direction:column;
-      gap:4px;
-      margin-bottom:8px;
-    }
-    .stock-note{
-      font-size:16px;
-      color:var(--muted);
-      margin:10px 0 0;
     }
 
-    .hero-review{
-      margin:6px 0 12px;
-      font-size:16px;
-    }
-    .hero-review .stars{
-      display:block;
-      font-size:15px;
-      letter-spacing:2px;
-      margin-bottom:2px;
-    }
-    .hero-review small{
-      display:block;
-      color:var(--muted);
-      font-size:14px;
-      margin-top:2px;
-    }
-
-    .trust-note{
-      font-size:16.5px;
-      color:var(--muted);
-      margin:10px 0 0;
-      max-width:560px;
-    }
-
-    .hero{margin-top:8px}
-    .hero-main{background:var(--card);padding:10px;border-radius:var(--radius);box-shadow:var(--shadow)}
-    .thumbs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
-    .thumbs img{height:140px;object-fit:cover}
-
-    .cue{display:flex;align-items:center;justify-content:center;margin:14px 0 6px;color:var(--muted);font-size:13px;gap:8px}
-    .chev{width:10px;height:10px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);animation:bounce 1.6s infinite}
-    @keyframes bounce{
-      0%,100%{transform:translateY(0) rotate(45deg)}
-      50%{transform:translateY(6px) rotate(45deg)}
-    }
-
-    section{margin:26px 0}
-    .card{background:var(--card);padding:14px;border-radius:var(--radius);box-shadow:var(--shadow)}
-    .split{display:grid;grid-template-columns:1fr;gap:var(--gap)}
-    @media(min-width:760px){ .split{grid-template-columns:1.1fr .9fr} }
-
-    ul.clean{margin:0;padding-left:18px}
-    ul.clean li{margin:6px 0}
-
-    .sprinkle{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
-    @media(min-width:760px){ .sprinkle{grid-template-columns:1fr 1fr 1fr} }
-
-    .t-grid{display:grid;grid-template-columns:1fr;gap:10px}
-    @media(min-width:760px){ .t-grid{grid-template-columns:1fr 1fr 1fr} }
-    .t{
-      background:var(--card);
+    .hero-main{
+      background:#fff;
       padding:12px;
-      border-radius:14px;
+      border-radius:var(--radius);
       box-shadow:var(--shadow);
-      font-size:16.5px;
-    }
-    .t small{color:var(--muted);font-size:14px}
-    .t-stars{margin-bottom:4px;}
-    .t-stars svg{display:block;}
-
-    footer{color:var(--muted);font-size:13px;margin:40px 0 20px}
-
-    .review-teaser{
-      display:flex;
-      flex-direction:column;
-      align-items:flex-start;
-      gap:6px;
-      font-size:16.5px;
-      line-height:1.45;
-      margin:12px 0 10px;
-    }
-    .review-teaser-text{ margin:0; }
-    .review-teaser small{
-      display:block;
-      color:var(--muted);
-      font-size:14px;
-      margin-top:2px;
-    }
-    .review-teaser svg{ flex-shrink:0; }
-
-    .trust-row{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin:10px 0 6px;
-      flex-wrap:wrap;
-    }
-    .trust-row img{
-      height:30px;
-      width:auto;
-      object-fit:contain;
-      border-radius:0;
-      display:block;
-    }
-    .trust-copy{
-      font-size:14.5px;
-      color:var(--muted);
-      margin:0 0 12px;
     }
 
-    .email-capture{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:6px;
-    }
-    .email-capture input{
-      flex:1;
-      min-width:240px;
-      padding:12px 14px;
-      border-radius:12px;
-      border:1px solid rgba(0,0,0,.2);
-    }
-    .hidden{display:none;}
+    img{max-width:100%;display:block;border-radius:12px}
 
-    .faq details{
+    section{margin:36px 0}
+
+    .card{
       background:var(--card);
-      border-radius:14px;
+      padding:18px;
+      border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:12px 14px;
-      margin:10px 0;
     }
-    .faq summary{
-      cursor:pointer;
-      font-weight:650;
-      list-style:none;
-      outline:none;
-    }
-    .faq summary::-webkit-details-marker{display:none;}
-    .faq .ans{
-      color:var(--muted);
-      margin:8px 0 0;
+
+    ul.clean{padding-left:20px}
+    ul.clean li{margin:8px 0}
+
+    footer{
+      margin-top:60px;
       font-size:16px;
-      line-height:1.5;
-    }
-    .pill{
-      display:inline-block;
-      background:rgba(0,0,0,.06);
-      border:1px solid rgba(0,0,0,.08);
-      border-radius:999px;
-      padding:6px 10px;
-      font-size:13px;
       color:var(--muted);
-      margin:10px 0 0;
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
+
     <header>
       <img class="logo" src="/images/logo.png" alt="Skipsey’s Woodworking logo" />
       <div>
         <strong>SKIPSEY’S WOODWORKING</strong><br />
-        <span class="sub">Made by a 16-year-old maker on the Gold Coast.</span>
+        <span class="sub">Made by a 17-year-old maker on the Gold Coast.</span>
       </div>
     </header>
 
-    <section class="hero" aria-label="Hero image">
-      <div class="hero-main">
-        <img src="/images/hero-desktop.jpg" alt="Handmade mixed-hardwood chopping board on white background" loading="eager" />
-      </div>
-    </section>
+    <div class="hero-main">
+      <img src="/images/hero-desktop.jpg" alt="Australian hardwood chopping board" loading="eager" />
+    </div>
 
-    <div class="hero-intro">
-      <p class="eyebrow">Gold Coast • Small batches</p>
-      <h1>Australian hardwood<br />chopping board</h1>
+    <section>
+      <h1>Australian hardwood chopping board</h1>
 
-      <a href="#buy" class="btn" id="ctaTop">Order now – $139 delivered</a>
+      <a href="#buy" class="btn">Order now – $139 delivered</a>
+
       <p class="stock-cta">In stock — 10 available from current batch.</p>
+
       <p class="shipping-note">
-        Dispatch is typically within 3–5 business days when in stock. If we’re between batches, we’ll email you within 24 hours with the ETA.
+        Dispatch is typically within 3–5 business days. If temporarily out of stock, we’ll email you within 24 hours with the ETA.
       </p>
 
-      <p class="stock-note">50+ sold across Australia — each one unique.</p>
-
-      <div class="hero-review">
-        <span class="stars" aria-hidden="true">
-          <svg width="120" height="20" viewBox="0 0 150 26" focusable="false">
-            <g fill="black">
-              <path d="M15 0l4.045 8.19L28 9.51l-6.5 6.39L23.09 25 15 20.76 6.91 25l1.59-9.1L2 9.51l8.955-1.32L15 0z"/>
-              <path d="M45 0l4.045 8.19L58 9.51l-6.5 6.39L53.09 25 45 20.76 36.91 25l1.59-9.1L32 9.51l8.955-1.32L45 0z"/>
-              <path d="M75 0l4.045 8.19L88 9.51l-6.5 6.39L83.09 25 75 20.76 66.91 25l1.59-9.1L62 9.51l8.955-1.32L75 0z"/>
-              <path d="M105 0l4.045 8.19L118 9.51l-6.5 6.39L113.09 25 105 20.76 96.91 25l1.59-9.1L92 9.51l8.955-1.32L105 0z"/>
-              <path d="M135 0l4.045 8.19L148 9.51l-6.5 6.39L143.09 25 135 20.76 126.91 25l1.59-9.1L122 9.51l8.955-1.32L135 0z"/>
-            </g>
-          </svg>
-        </span>
-        <span>“Noah has produced an absolute masterpiece. The best value board on the market and will be back to buy more.”</span>
-        <small>— Adam Dale, Queensland</small>
-      </div>
-
-      <p class="trust-note">
-        A solid 4.5 kg slab of sustainably sourced Australian hardwood — crafted, glued, sanded and finished by hand in Noah’s family workshop.
+      <p style="margin-top:14px;font-size:19px;color:var(--muted);">
+        90+ boards sold across Australia — each one unique.
       </p>
-
-      <div class="pill">Seen us on Facebook? You’re in the right place 👋</div>
-
-      <!-- rest of file unchanged from your current version -->
-      <section class="card" style="margin-top:14px">
-        <h2 style="margin-top:0;font-size:20px">Not ready to order?</h2>
-        <p class="sub">Get a quiet heads-up when Noah finishes the next batch.</p>
-
-        <form name="newsletter"
-          method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
-          action="/index.html?signedup=1">
-
-          <input type="hidden" name="form-name" value="newsletter">
-          <p class="hidden">
-            <label>Don’t fill this out <input name="bot-field"></label>
-          </p>
-
-          <div class="email-capture">
-            <input type="email"
-                  name="email"
-                  placeholder="Your email address"
-                  required>
-            <button type="submit" class="btn">Notify me</button>
-          </div>
-        </form>
-      </section>
-    </div>
-
-    <!-- NOTE: everything below here remains identical to your current file -->
-    <!-- (keep your existing sections: More views, Why this board, Order & delivery, Testimonials, FAQ, Care, About, Footer, GA tracking) -->
-
-    <section class="hero" aria-label="More views">
-      <div class="hero-main">
-        <div class="thumbs" aria-label="More views">
-          <img src="/images/secondary-1.jpg" alt="Board close on table with knife" loading="lazy" />
-          <img src="/images/secondary-2.jpg" alt="Noah holding the finished board" loading="lazy" />
-        </div>
-      </div>
     </section>
 
-    <div class="cue">
-      <span>Scroll for details</span><span class="chev"></span>
-    </div>
-
-    <section id="details" class="split">
-      <div class="card">
-        <h2 style="margin-top:0">Why this board</h2>
-        <ul class="clean">
-          <li>Approx <strong>500 × 300 × 40 mm</strong> (about 4.5 kg).</li>
-          <li>Mixed sustainably sourced Australian hardwoods; unique grain on every board.</li>
-          <li><strong>Food-safe oil/wax</strong> finish.</li>
-          <li><strong>Juice groove</strong> and softly radiused edges.</li>
-          <li><strong>Non-slip feet</strong> for stability and airflow.</li>
-          <li>Made by Noah on the Gold Coast and shipped Australia-wide.</li>
-        </ul>
-        <div class="sprinkle">
-          <img src="/images/board-grain.jpg" alt="Close-up of timber grain and finish" loading="lazy">
-          <img src="/images/board-feet.jpg" alt="Underside showing rubber feet" loading="lazy">
-          <img src="/images/workshop-noah.jpg" alt="Noah in the workshop" loading="lazy">
-        </div>
-      </div>
-      <div class="card">
-        <img src="/images/secondary-1.jpg" alt="Board on table with knife and rosemary" loading="lazy">
-      </div>
+    <section class="card">
+      <h2>Why this board</h2>
+      <ul class="clean">
+        <li>Approx <strong>500 × 300 × 40 mm</strong></li>
+        <li>Solid and heavy (around 4.5 kg)</li>
+        <li>Food-safe oil/wax finish</li>
+        <li>Juice groove and soft edges</li>
+        <li>Non-slip feet underneath</li>
+        <li>Handcrafted locally</li>
+      </ul>
     </section>
 
-    <section class="card" id="buy">
-      <h2 style="margin-top:0">Order & delivery</h2>
-      <p>$139 delivered to anywhere in Australia. Boards are made in small batches and each one is unique.</p>
-
-      <div class="review-teaser" aria-label="Customer review">
-        <svg width="120" height="20" viewBox="0 0 150 26" aria-hidden="true" focusable="false">
-          <g fill="black">
-            <path d="M15 0l4.045 8.19L28 9.51l-6.5 6.39L23.09 25 15 20.76 6.91 25l1.59-9.1L2 9.51l8.955-1.32L15 0z"/>
-            <path d="M45 0l4.045 8.19L58 9.51l-6.5 6.39L53.09 25 45 20.76 36.91 25l1.59-9.1L32 9.51l8.955-1.32L45 0z"/>
-            <path d="M75 0l4.045 8.19L88 9.51l-6.5 6.39L83.09 25 75 20.76 66.91 25l1.59-9.1L62 9.51l8.955-1.32L75 0z"/>
-            <path d="M105 0l4.045 8.19L118 9.51l-6.5 6.39L113.09 25 105 20.76 96.91 25l1.59-9.1L92 9.51l8.955-1.32L105 0z"/>
-            <path d="M135 0l4.045 8.19L148 9.51l-6.5 6.39L143.09 25 135 20.76 126.91 25l1.59-9.1L122 9.51l8.955-1.32L135 0z"/>
-          </g>
-        </svg>
-        <p class="review-teaser-text">
-          “My mate loved it. Perfect gift! I bought one as a 50th birthday present. I almost kept it for myself!”
-          <small>— Matthew Jackson, Queensland</small>
-        </p>
-      </div>
-
-      <div class="trust-row" aria-label="Payment methods">
-        <img src="/images/logo-stripe.svg" alt="Stripe secure payment" />
-      </div>
-
-      <p class="trust-copy">Secure, encrypted payment via Stripe.</p>
-
-      <a href="https://buy.stripe.com/28E28q9mTdzU2Aa7Dt6Zy01" class="btn" id="ctaBuy">Buy now – $139 delivered</a>
-      <p class="shipping-note">Questions before you buy? Check the FAQ below (or join the notify list at the top).</p>
-    </section>
-
-    <section>
-      <h2>What people say</h2>
-      <div class="t-grid">
-        <div class="t">
-          <div class="t-stars">
-            <svg width="108" height="18" viewBox="0 0 150 26" aria-hidden="true" focusable="false">
-              <g fill="black">
-                <path d="M15 0l4.045 8.19L28 9.51l-6.5 6.39L23.09 25 15 20.76 6.91 25l1.59-9.1L2 9.51l8.955-1.32L15 0z"/>
-                <path d="M45 0l4.045 8.19L58 9.51l-6.5 6.39L53.09 25 45 20.76 36.91 25l1.59-9.1L32 9.51l8.955-1.32L45 0z"/>
-                <path d="M75 0l4.045 8.19L88 9.51l-6.5 6.39L83.09 25 75 20.76 66.91 25l1.59-9.1L62 9.51l8.955-1.32L75 0z"/>
-                <path d="M105 0l4.045 8.19L118 9.51l-6.5 6.39L113.09 25 105 20.76 96.91 25l1.59-9.1L92 9.51l8.955-1.32L105 0z"/>
-                <path d="M135 0l4.045 8.19L148 9.51l-6.5 6.39L143.09 25 135 20.76 126.91 25l1.59-9.1L122 9.51l8.955-1.32L135 0z"/>
-              </g>
-            </svg>
-          </div>
-          “I bought a gorgeous wooden block from Noah. The most beautiful craftsmanship and so much care taken in its construction. It will be a treasure for a long time.”<br>
-          <small>— Meg Eddy, Queensland</small>
-        </div>
-
-        <div class="t">
-          <div class="t-stars">
-            <svg width="108" height="18" viewBox="0 0 150 26" aria-hidden="true" focusable="false">
-              <g fill="black">
-                <path d="M15 0l4.045 8.19L28 9.51l-6.5 6.39L23.09 25 15 20.76 6.91 25l1.59-9.1L2 9.51l8.955-1.32L15 0z"/>
-                <path d="M45 0l4.045 8.19L58 9.51l-6.5 6.39L53.09 25 45 20.76 36.91 25l1.59-9.1L32 9.51l8.955-1.32L45 0z"/>
-                <path d="M75 0l4.045 8.19L88 9.51l-6.5 6.39L83.09 25 75 20.76 66.91 25l1.59-9.1L62 9.51l8.955-1.32L75 0z"/>
-                <path d="M105 0l4.045 8.19L118 9.51l-6.5 6.39L113.09 25 105 20.76 96.91 25l1.59-9.1L92 9.51l8.955-1.32L105 0z"/>
-                <path d="M135 0l4.045 8.19L148 9.51l-6.5 6.39L143.09 25 135 20.76 126.91 25l1.59-9.1L122 9.51l8.955-1.32L135 0z"/>
-              </g>
-            </svg>
-          </div>
-          “Noah has produced an absolute masterpiece. The board is professionally finished with both handles and spill mote in place and also non slip rubber feet in place. The best value board on the market and will be back to buy more. Thanks Noah, great craftsmanship mate.”<br>
-          <small>— Adam Dale, Queensland</small>
-        </div>
-
-        <div class="t">
-          <div class="t-stars">
-            <svg width="108" height="18" viewBox="0 0 150 26" aria-hidden="true" focusable="false">
-              <g fill="black">
-                <path d="M15 0l4.045 8.19L28 9.51l-6.5 6.39L23.09 25 15 20.76 6.91 25l1.59-9.1L2 9.51l8.955-1.32L15 0z"/>
-                <path d="M45 0l4.045 8.19L58 9.51l-6.5 6.39L53.09 25 45 20.76 36.91 25l1.59-9.1L32 9.51l8.955-1.32L45 0z"/>
-                <path d="M75 0l4.045 8.19L88 9.51l-6.5 6.39L83.09 25 75 20.76 66.91 25l1.59-9.1L62 9.51l8.955-1.32L75 0z"/>
-                <path d="M105 0l4.045 8.19L118 9.51l-6.5 6.39L113.09 25 105 20.76 96.91 25l1.59-9.1L92 9.51l8.955-1.32L105 0z"/>
-                <path d="M135 0l4.045 8.19L148 9.51l-6.5 6.39L143.09 25 135 20.76 126.91 25l1.59-9.1L122 9.51l8.955-1.32L135 0z"/>
-              </g>
-            </svg>
-          </div>
-          “My mate loved it. Perfect gift! I bought one as a 50th birthday present. I almost kept it for myself!”<br>
-          <small>— Matthew Jackson, Queensland</small>
-        </div>
-
-        <div class="t">
-          <div class="t-stars">
-            <svg width="108" height="18" viewBox="0 0 150 26" aria-hidden="true" focusable="false">
-              <g fill="black">
-                <path d="M15 0l4.045 8.19L28 9.51l-6.5 6.39L23.09 25 15 20.76 6.91 25l1.59-9.1L2 9.51l8.955-1.32L15 0z"/>
-                <path d="M45 0l4.045 8.19L58 9.51l-6.5 6.39L53.09 25 45 20.76 36.91 25l1.59-9.1L32 9.51l8.955-1.32L45 0z"/>
-                <path d="M75 0l4.045 8.19L88 9.51l-6.5 6.39L83.09 25 75 20.76 66.91 25l1.59-9.1L62 9.51l8.955-1.32L75 0z"/>
-                <path d="M105 0l4.045 8.19L118 9.51l-6.5 6.39L113.09 25 105 20.76 96.91 25l1.59-9.1L92 9.51l8.955-1.32L105 0z"/>
-                <path d="M135 0l4.045 8.19L148 9.51l-6.5 6.39L143.09 25 135 20.76 126.91 25l1.59-9.1L122 9.51l8.955-1.32L135 0z"/>
-              </g>
-            </svg>
-          </div>
-          “I love my hand crafted chopping board! I like its artisan feeling with its quality finish. It looks beautiful in my kitchen and is functional and unique at the same time.”<br>
-          <small>— Dan Ridgley Hewitt</small>
-        </div>
-
-        <div class="t">
-          <div class="t-stars">
-            <svg width="108" height="18" viewBox="0 0 150 26" aria-hidden="true" focusable="false">
-              <g fill="black">
-                <path d="M15 0l4.045 8.19L28 9.51l-6.5 6.39L23.09 25 15 20.76 6.91 25l1.59-9.1L2 9.51l8.955-1.32L15 0z"/>
-                <path d="M45 0l4.045 8.19L58 9.51l-6.5 6.39L53.09 25 45 20.76 36.91 25l1.59-9.1L32 9.51l8.955-1.32L45 0z"/>
-                <path d="M75 0l4.045 8.19L88 9.51l-6.5 6.39L83.09 25 75 20.76 66.91 25l1.59-9.1L62 9.51l8.955-1.32L75 0z"/>
-                <path d="M105 0l4.045 8.19L118 9.51l-6.5 6.39L113.09 25 105 20.76 96.91 25l1.59-9.1L92 9.51l8.955-1.32L105 0z"/>
-                <path d="M135 0l4.045 8.19L148 9.51l-6.5 6.39L143.09 25 135 20.76 126.91 25l1.59-9.1L122 9.51l8.955-1.32L135 0z"/>
-              </g>
-            </svg>
-          </div>
-          “Sturdy, sleek and resistant. The perfect replacement to plastic chopping boards. Very happy to have bought one!”<br>
-          <small>— Angelina Balaguer, Victoria</small>
-        </div>
-      </div>
-    </section>
-
-    <section class="faq">
-      <h2>FAQ</h2>
-
-      <details>
-        <summary>What size is the board?</summary>
-        <p class="ans">Approx <strong>500 × 300 × 40 mm</strong>, around <strong>4.5 kg</strong>. It’s a proper, heavy board that stays put on the bench.</p>
-      </details>
-
-      <details>
-        <summary>Is each board the same?</summary>
-        <p class="ans">Same overall size and features, but the timber mix and grain vary — every board is unique.</p>
-      </details>
-
-      <details>
-        <summary>Can it go in the dishwasher?</summary>
-        <p class="ans">No — like any solid timber board, dishwashers (heat + water + detergent) will shorten its life. Quick hand-wash and dry is best.</p>
-      </details>
-
-      <details>
-        <summary>How do I look after it?</summary>
-        <p class="ans">Hand-wash, wipe dry, and stand it upright for airflow. Re-oil occasionally with a food-safe board oil/wax if it starts to look dry.</p>
-      </details>
-
-      <details>
-        <summary>How long does shipping take?</summary>
-        <p class="ans">Once dispatched, Australia Post transit times vary by location. Dispatch is usually within 3–5 business days when in stock — if we’re between batches we’ll email you within 24 hours with the ETA.</p>
-      </details>
-
-      <details>
-        <summary>What if I have an issue when it arrives?</summary>
-        <p class="ans">Message us and we’ll sort it out. These are handmade, but we still want you to be genuinely stoked when it lands.</p>
-      </details>
-    </section>
-
-    <section>
-      <h2>Care</h2>
-      <div class="card">
-        <ul class="clean">
-          <li>Hand-wash only; wipe dry straight after use.</li>
-          <li>Stand upright to allow airflow.</li>
-          <li>Refresh occasionally with food-safe board oil or wax.</li>
-          <li>Avoid soaking, dishwasher, or harsh detergents.</li>
-        </ul>
-      </div>
+    <section id="buy" class="card">
+      <h2>Order & delivery</h2>
+      <p>$139 delivered anywhere in Australia.</p>
+      <a href="https://buy.stripe.com/28E28q9mTdzU2Aa7Dt6Zy01" class="btn">Buy now – $139 delivered</a>
     </section>
 
     <section class="card">
       <h2>About the maker</h2>
-      <div class="split" style="align-items:center">
-        <p>Noah is a 16-year-old maker on the Gold Coast who genuinely loves working with timber. What started as a small project in his family workshop has grown into a passion for creating solid, practical pieces that are made to last.</p>
-        <p>Every board is carefully glued, shaped, sanded and finished by hand by Noah himself — no factory shortcuts, no mass production. Each one reflects the time, care and pride he puts into his work, which is why no two boards are ever exactly the same.</p>
-        <img src="/images/secondary-2.jpg" alt="Noah with his handmade board" loading="lazy">
-      </div>
-    </section>
-
-    <section style="text-align:center">
-      <a href="https://buy.stripe.com/28E28q9mTdzU2Aa7Dt6Zy01" class="btn" id="ctaBottom">Get yours for $139 delivered</a>
+      <p>
+        Noah is a 17-year-old maker on the Gold Coast who genuinely enjoys working with timber. What began as a small workshop project has grown into a passion for crafting solid, practical pieces that are built to last.
+      </p>
+      <p>
+        Each board is glued, shaped, sanded and finished by hand. No mass production. No factory shortcuts.
+      </p>
     </section>
 
     <footer>
       © <span id="y"></span> Skipsey’s Woodworking · Gold Coast, Australia
     </footer>
+
   </div>
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
-
-    function track(label){
-      gtag('event','cta_click',{
-        event_category:'engagement',
-        event_label:label,
-        value:1
-      });
-    }
-    document.getElementById('ctaTop').addEventListener('click',()=>track('top'));
-    document.getElementById('ctaBuy').addEventListener('click',()=>track('mid'));
-    document.getElementById('ctaBottom').addEventListener('click',()=>track('bottom'));
-
-    document.querySelectorAll('.faq details').forEach((d)=>{
-      d.addEventListener('toggle',()=>{
-        if(d.open){
-          const q = (d.querySelector('summary')?.textContent || 'faq').trim();
-          gtag('event','faq_open',{
-            event_category:'engagement',
-            event_label:q
-          });
-        }
-      });
-    });
-
-    (function(){
-      let lastBucket = 0;
-      function fire(bucket){
-        if(bucket <= lastBucket) return;
-        lastBucket = bucket;
-        gtag('event','scroll_' + bucket,{
-          event_category:'engagement',
-          value:bucket
-        });
-      }
-      window.addEventListener('scroll',function(){
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        if(docHeight <= 0) return;
-        const scrolled = window.scrollY / docHeight;
-        if(scrolled >= 0.75) fire(75);
-        else if(scrolled >= 0.5) fire(50);
-        else if(scrolled >= 0.25) fire(25);
-        else if(scrolled >= 0.10) fire(10);
-      },{passive:true});
-    })();
   </script>
 </body>
 </html>
