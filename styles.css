@@ -201,7 +201,7 @@ footer{color:var(--muted);font-size:var(--fs-small);margin:40px 0 20px}
 
 /* Lightbox swipe animation (minimal) */
 .lightbox-img{
-  transition: transform 160ms ease, opacity 160ms ease;
+  transition: transform 160ms cubic-bezier(.2,.8,.2,1), opacity 160ms cubic-bezier(.2,.8,.2,1);
   will-change: transform, opacity;
 }
 .lightbox-img.is-exit-left{ transform: translateX(-18px); opacity: 0; }
