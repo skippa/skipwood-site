@@ -255,20 +255,19 @@
     </section>
 
     <section class="section">
-  <div class="container">
-    <h2 class="section-title">Seen in real kitchens</h2>
-    <p class="section-subtle">Photos shared by customers across Australia.</p>
+      <div class="container">
+        <h2 class="section-title">Seen in real kitchens</h2>
+        <p class="section-subtle">Photos shared by customers across Australia.</p>
 
-    <div class="customer-grid">
-      <img class="gallery-img" src="images/customer-barry-kitchen.jpg" alt="Customer kitchen with hardwood chopping board" />
-      <img class="gallery-img" src="images/customer-emily-mango.jpg" alt="Customer preparing mango on hardwood chopping board" />
-      <img class="gallery-img" src="images/customer-kassie-bbq.jpg" alt="Customer outdoor BBQ setup with hardwood chopping board" />
-    </div>
+        <div class="customer-grid">
+          <img class="gallery-img" src="/images/customer-barry-kitchen.jpg" alt="Customer kitchen with hardwood chopping board" loading="lazy" />
+          <img class="gallery-img" src="/images/customer-emily-mango.jpg" alt="Customer preparing mango on hardwood chopping board" loading="lazy" />
+          <img class="gallery-img" src="/images/customer-kassie-bbq.jpg" alt="Customer outdoor BBQ setup with hardwood chopping board" loading="lazy" />
+        </div>
 
-    <p class="section-subtle proof-line">90+ boards now in Australian homes.</p>
-  </div>
-</section>
-
+        <p class="section-subtle proof-line">90+ boards now in Australian homes.</p>
+      </div>
+    </section>
 
     <section class="faq">
       <h2>FAQ</h2>
@@ -307,9 +306,9 @@
     <section class="card">
       <h2>About the maker</h2>
       <div class="split" style="align-items:center">
-          <p>Noah is a 17-year-old woodworker on the Gold Coast who has basically turned the family workshop into his second home. What started as mucking around with timber a few years ago has turned into a full-blown obsession.</p>
-          <p>Over the last four years he’s taught himself everything the hard way — building, stuffing it up, rebuilding it better, watching YouTube, upgrading tools, and spending long days (and plenty of weekends) perfecting his craft. Chopping boards are just the start — he’s made coffee tables, benches, bedside tables, live-edge pieces… if it’s made of timber, he’s probably had a crack at it.</p>
-          <p>Every board is glued, shaped, sanded and finished by hand by Noah himself. No factory shortcuts. No mass production. Just solid hardwood, a lot of patience, and a teenager who genuinely loves what he does.</p>
+        <p>Noah is a 17-year-old woodworker on the Gold Coast who has basically turned the family workshop into his second home. What started as mucking around with timber a few years ago has turned into a full-blown obsession.</p>
+        <p>Over the last four years he’s taught himself everything the hard way — building, stuffing it up, rebuilding it better, watching YouTube, upgrading tools, and spending long days (and plenty of weekends) perfecting his craft. Chopping boards are just the start — he’s made coffee tables, benches, bedside tables, live-edge pieces… if it’s made of timber, he’s probably had a crack at it.</p>
+        <p>Every board is glued, shaped, sanded and finished by hand by Noah himself. No factory shortcuts. No mass production. Just solid hardwood, a lot of patience, and a teenager who genuinely loves what he does.</p>
         <img class="gallery-img" src="/images/secondary-2.jpg" alt="Noah with his handmade board" loading="lazy">
       </div>
     </section>
@@ -321,6 +320,11 @@
     <footer>
       © <span id="y"></span> Skipsey’s Woodworking · Gold Coast, Australia
     </footer>
+  </div>
+
+  <!-- Lightbox (MUST be before the script that reads it) -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <img class="lightbox-img" id="lightboxImg" alt="" />
   </div>
 
   <script>
@@ -370,15 +374,14 @@
       },{passive:true});
     })();
 
-    
     // ***** LIGHTBOX STUFF *****
-
     (() => {
       const imgs = Array.from(document.querySelectorAll('.gallery-img'));
       if (!imgs.length) return;
 
       const lb = document.getElementById('lightbox');
       const lbImg = document.getElementById('lightboxImg');
+      if (!lb || !lbImg) return;
 
       let idx = 0;
       let startX = 0;
@@ -408,15 +411,12 @@
       const next = () => setImg(idx + 1);
       const prev = () => setImg(idx - 1);
 
-      // open on click
       imgs.forEach((img, i) => img.addEventListener('click', () => open(i)));
 
-      // tap/click outside image to close
       lb.addEventListener('click', (e) => {
         if (e.target === lb) close();
       });
 
-      // keyboard support (desktop)
       window.addEventListener('keydown', (e) => {
         if (!lb.classList.contains('is-open')) return;
         if (e.key === 'Escape') close();
@@ -424,7 +424,6 @@
         if (e.key === 'ArrowLeft') prev();
       });
 
-      // swipe support (mobile)
       lb.addEventListener('touchstart', (e) => {
         if (!lb.classList.contains('is-open')) return;
         const t = e.touches[0];
@@ -441,25 +440,12 @@
         const dx = t.clientX - startX;
         const dy = t.clientY - startY;
 
-        // ignore vertical scroll gestures
         if (Math.abs(dy) > Math.abs(dx)) return;
 
-        // threshold
         if (dx < -40) next();
         else if (dx > 40) prev();
       }, {passive:true});
     })();
-
-
-
-
-
   </script>
-
-
-<div class="lightbox" id="lightbox" aria-hidden="true">
-  <img class="lightbox-img" id="lightboxImg" alt="" />
-</div>
-
 </body>
 </html>
