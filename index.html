@@ -388,11 +388,40 @@
       let startY = 0;
       let tracking = false;
 
-      const setImg = (i) => {
-        idx = (i + imgs.length) % imgs.length;
-        lbImg.src = imgs[idx].src;
-        lbImg.alt = imgs[idx].alt || '';
+      const setImg = (i, dir = 0) => {
+        const nextIndex = (i + imgs.length) % imgs.length;
+
+        // No animation (first open / keyboard etc.)
+        if (!lbImg.src || dir === 0) {
+          idx = nextIndex;
+          lbImg.src = imgs[idx].src;
+          lbImg.alt = imgs[idx].alt || '';
+          return;
+        }
+
+        // Animate out
+        const exitClass = dir > 0 ? 'is-exit-left' : 'is-exit-right';
+        const enterClass = dir > 0 ? 'is-enter-right' : 'is-enter-left';
+
+        lbImg.classList.remove('is-exit-left','is-exit-right','is-enter-left','is-enter-right');
+        lbImg.classList.add(exitClass);
+
+        // After exit transition, swap image and animate in
+        setTimeout(() => {
+          idx = nextIndex;
+          lbImg.src = imgs[idx].src;
+          lbImg.alt = imgs[idx].alt || '';
+
+          lbImg.classList.remove(exitClass);
+          lbImg.classList.add(enterClass);
+
+          // Force a frame then settle to normal
+          requestAnimationFrame(() => {
+            lbImg.classList.remove(enterClass);
+          });
+        }, 160);
       };
+
 
       const open = (i) => {
         setImg(i);
@@ -408,8 +437,9 @@
         document.body.style.overflow = '';
       };
 
-      const next = () => setImg(idx + 1);
-      const prev = () => setImg(idx - 1);
+      const next = () => setImg(idx + 1, +1);
+      const prev = () => setImg(idx - 1, -1);
+
 
       imgs.forEach((img, i) => img.addEventListener('click', () => open(i)));
 

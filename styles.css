@@ -199,5 +199,16 @@ footer{color:var(--muted);font-size:var(--fs-small);margin:40px 0 20px}
   box-shadow:0 20px 60px rgba(0,0,0,.45);
 }
 
+/* Lightbox swipe animation (minimal) */
+.lightbox-img{
+  transition: transform 160ms ease, opacity 160ms ease;
+  will-change: transform, opacity;
+}
+.lightbox-img.is-exit-left{ transform: translateX(-18px); opacity: 0; }
+.lightbox-img.is-exit-right{ transform: translateX(18px); opacity: 0; }
+.lightbox-img.is-enter-left{ transform: translateX(18px); opacity: 0; }
+.lightbox-img.is-enter-right{ transform: translateX(-18px); opacity: 0; }
+
+
 /* subtle cue without UI bloat */
 .gallery-img{ cursor: zoom-in; }
