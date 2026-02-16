@@ -42,7 +42,7 @@
 
     <section class="hero" aria-label="Hero image">
       <div class="hero-main">
-        <img src="/images/hero-desktop.jpg" alt="Handmade mixed-hardwood chopping board on white background" loading="eager" />
+        <img class="gallery-img" src="/images/hero-desktop.jpg" alt="Handmade mixed-hardwood chopping board on white background" loading="eager" />
       </div>
     </section>
 
@@ -104,8 +104,8 @@
     <section class="hero" aria-label="More views">
       <div class="hero-main">
         <div class="thumbs" aria-label="More views">
-          <img src="/images/secondary-1.jpg" alt="Board close on table with knife" loading="lazy" />
-          <img src="/images/secondary-2.jpg" alt="Noah holding the finished board" loading="lazy" />
+          <img class="gallery-img" src="/images/secondary-1.jpg" alt="Board close on table with knife" loading="lazy" />
+          <img class="gallery-img" src="/images/secondary-2.jpg" alt="Noah holding the finished board" loading="lazy" />
         </div>
       </div>
     </section>
@@ -126,13 +126,13 @@
           <li>Made by Noah on the Gold Coast and shipped Australia-wide.</li>
         </ul>
         <div class="sprinkle">
-          <img src="/images/board-grain.jpg" alt="Close-up of timber grain and finish" loading="lazy">
-          <img src="/images/board-feet.jpg" alt="Underside showing rubber feet" loading="lazy">
-          <img src="/images/workshop-noah.jpg" alt="Noah in the workshop" loading="lazy">
+          <img class="gallery-img" src="/images/board-grain.jpg" alt="Close-up of timber grain and finish" loading="lazy">
+          <img class="gallery-img" src="/images/board-feet.jpg" alt="Underside showing rubber feet" loading="lazy">
+          <img class="gallery-img" src="/images/workshop-noah.jpg" alt="Noah in the workshop" loading="lazy">
         </div>
       </div>
       <div class="card">
-        <img src="/images/secondary-1.jpg" alt="Board on table with knife and rosemary" loading="lazy">
+        <img class="gallery-img" src="/images/secondary-1.jpg" alt="Board on table with knife and rosemary" loading="lazy">
       </div>
     </section>
 
@@ -260,9 +260,9 @@
     <p class="section-subtle">Photos shared by customers across Australia.</p>
 
     <div class="customer-grid">
-      <img src="images/customer-barry-kitchen.jpg" alt="Customer kitchen with hardwood chopping board" />
-      <img src="images/customer-emily-mango.jpg" alt="Customer preparing mango on hardwood chopping board" />
-      <img src="images/customer-kassie-bbq.jpg" alt="Customer outdoor BBQ setup with hardwood chopping board" />
+      <img class="gallery-img" src="images/customer-barry-kitchen.jpg" alt="Customer kitchen with hardwood chopping board" />
+      <img class="gallery-img" src="images/customer-emily-mango.jpg" alt="Customer preparing mango on hardwood chopping board" />
+      <img class="gallery-img" src="images/customer-kassie-bbq.jpg" alt="Customer outdoor BBQ setup with hardwood chopping board" />
     </div>
 
     <p class="section-subtle proof-line">90+ boards now in Australian homes.</p>
@@ -310,7 +310,7 @@
           <p>Noah is a 17-year-old woodworker on the Gold Coast who has basically turned the family workshop into his second home. What started as mucking around with timber a few years ago has turned into a full-blown obsession.</p>
           <p>Over the last four years he’s taught himself everything the hard way — building, stuffing it up, rebuilding it better, watching YouTube, upgrading tools, and spending long days (and plenty of weekends) perfecting his craft. Chopping boards are just the start — he’s made coffee tables, benches, bedside tables, live-edge pieces… if it’s made of timber, he’s probably had a crack at it.</p>
           <p>Every board is glued, shaped, sanded and finished by hand by Noah himself. No factory shortcuts. No mass production. Just solid hardwood, a lot of patience, and a teenager who genuinely loves what he does.</p>
-        <img src="/images/secondary-2.jpg" alt="Noah with his handmade board" loading="lazy">
+        <img class="gallery-img" src="/images/secondary-2.jpg" alt="Noah with his handmade board" loading="lazy">
       </div>
     </section>
 
@@ -369,6 +369,97 @@
         else if(scrolled >= 0.10) fire(10);
       },{passive:true});
     })();
+
+    
+    // ***** LIGHTBOX STUFF *****
+
+    (() => {
+      const imgs = Array.from(document.querySelectorAll('.gallery-img'));
+      if (!imgs.length) return;
+
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lightboxImg');
+
+      let idx = 0;
+      let startX = 0;
+      let startY = 0;
+      let tracking = false;
+
+      const setImg = (i) => {
+        idx = (i + imgs.length) % imgs.length;
+        lbImg.src = imgs[idx].src;
+        lbImg.alt = imgs[idx].alt || '';
+      };
+
+      const open = (i) => {
+        setImg(i);
+        lb.classList.add('is-open');
+        lb.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      };
+
+      const close = () => {
+        lb.classList.remove('is-open');
+        lb.setAttribute('aria-hidden', 'true');
+        lbImg.src = '';
+        document.body.style.overflow = '';
+      };
+
+      const next = () => setImg(idx + 1);
+      const prev = () => setImg(idx - 1);
+
+      // open on click
+      imgs.forEach((img, i) => img.addEventListener('click', () => open(i)));
+
+      // tap/click outside image to close
+      lb.addEventListener('click', (e) => {
+        if (e.target === lb) close();
+      });
+
+      // keyboard support (desktop)
+      window.addEventListener('keydown', (e) => {
+        if (!lb.classList.contains('is-open')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowRight') next();
+        if (e.key === 'ArrowLeft') prev();
+      });
+
+      // swipe support (mobile)
+      lb.addEventListener('touchstart', (e) => {
+        if (!lb.classList.contains('is-open')) return;
+        const t = e.touches[0];
+        startX = t.clientX;
+        startY = t.clientY;
+        tracking = true;
+      }, {passive:true});
+
+      lb.addEventListener('touchend', (e) => {
+        if (!tracking) return;
+        tracking = false;
+
+        const t = e.changedTouches[0];
+        const dx = t.clientX - startX;
+        const dy = t.clientY - startY;
+
+        // ignore vertical scroll gestures
+        if (Math.abs(dy) > Math.abs(dx)) return;
+
+        // threshold
+        if (dx < -40) next();
+        else if (dx > 40) prev();
+      }, {passive:true});
+    })();
+
+
+
+
+
   </script>
+
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <img class="lightbox-img" id="lightboxImg" alt="" />
+</div>
+
 </body>
 </html>
