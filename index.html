@@ -262,7 +262,7 @@
         <p class="section-subtle">Photos shared by customers across Australia.</p>
 
         <div class="customer-grid">
-          <img class="gallery-img" src="images/customer-emily-ocean-3x2.jpg" alt="Customer board with ocean view" loading="lazy"/>
+          <img class="gallery-img" src="/images/customer-emily-ocean-3x2.jpg" alt="Customer board with ocean view" loading="lazy"/>
           <img class="gallery-img" src="/images/customer-barry-kitchen.jpg" alt="Customer kitchen with hardwood chopping board" loading="lazy" />
           <img class="gallery-img" src="/images/customer-emily-mango.jpg" alt="Customer preparing mango on hardwood chopping board" loading="lazy" />
           <img class="gallery-img" src="/images/customer-kassie-bbq.jpg" alt="Customer outdoor BBQ setup with hardwood chopping board" loading="lazy" />
@@ -332,16 +332,18 @@
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    function track(label){
-      gtag('event','cta_click',{
-        event_category:'engagement',
-        event_label:label,
-        value:1
-      });
-    }
-    document.getElementById('ctaTop').addEventListener('click',()=>track('top'));
-    document.getElementById('ctaBuy').addEventListener('click',()=>track('mid'));
-    document.getElementById('ctaBottom').addEventListener('click',()=>track('bottom'));
+    // CTA tracking (explicit events)
+    document.getElementById('ctaTop')?.addEventListener('click', () => {
+      gtag('event', 'cta_order_details');
+    });
+
+    document.getElementById('ctaBuy')?.addEventListener('click', () => {
+      gtag('event', 'cta_stripe_buy');
+    });
+
+    document.getElementById('ctaBottom')?.addEventListener('click', () => {
+      gtag('event', 'cta_bottom_buy');
+    });
 
     document.querySelectorAll('.faq details').forEach((d)=>{
       d.addEventListener('toggle',()=>{
@@ -427,6 +429,7 @@
 
       const open = (i) => {
         setImg(i);
+        gtag('event', 'lightbox_open');
         lb.classList.add('is-open');
         lb.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
