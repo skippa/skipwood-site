@@ -212,3 +212,15 @@ footer{color:var(--muted);font-size:var(--fs-small);margin:40px 0 20px}
 
 /* subtle cue without UI bloat */
 .gallery-img{ cursor: zoom-in; }
+
+
+.stripe-badge {
+  margin: 10px 0;
+}
+
+.stripe-badge img {
+  display: inline-block;
+  height: 42px;
+  width: auto;
+  border-radius: 0;
+}
