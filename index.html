@@ -366,13 +366,14 @@
         if(d.open){
           const q = (d.querySelector('summary')?.textContent || 'faq').trim();
           gtag('event','faq_open',{
-            event_category:'engagement',
-            event_label:q
+            faq_question: q
           });
         }
       });
     });
 
+
+    // ******** SCROLL TRACKING **************
     (function(){
       let lastBucket = 0;
       function fire(bucket){
@@ -390,9 +391,54 @@
         if(scrolled >= 0.75) fire(75);
         else if(scrolled >= 0.5) fire(50);
         else if(scrolled >= 0.25) fire(25);
-        else if(scrolled >= 0.10) fire(10);
       },{passive:true});
     })();
+
+    //**** TRACK WHEN VIEW PRICING ********
+    (() => {
+      const buySection = document.getElementById('buy');
+      if (!buySection) return;
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            gtag('event', 'view_buy_section', {
+              event_category: 'funnel'
+            });
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.35 });
+
+      observer.observe(buySection);
+    })();
+
+    // **** NEWSLETTER SIGNUP TRACKING ****
+    (() => {
+      const form = document.querySelector('form[name="newsletter"]');
+      if (!form) return;
+
+      form.addEventListener('submit', () => {
+        gtag('event','newsletter_signup',{
+          event_category:'lead'
+        });
+      });
+    })();
+
+    // **** PHONE CLICK TRACKING ****
+    (() => {
+      const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+      if (!phoneLinks.length) return;
+
+      phoneLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          gtag('event','phone_click',{
+            event_category:'contact'
+          });
+        });
+      });
+    })();
+
 
     // ***** LIGHTBOX STUFF *****
     (() => {
@@ -445,7 +491,9 @@
 
       const open = (i) => {
         setImg(i);
-        gtag('event', 'lightbox_open');
+        gtag('event','lightbox_open',{
+          image: imgs[i].src
+        });
         lb.classList.add('is-open');
         lb.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
@@ -458,8 +506,15 @@
         document.body.style.overflow = '';
       };
 
-      const next = () => setImg(idx + 1, +1);
-      const prev = () => setImg(idx - 1, -1);
+      const next = () => {
+        setImg(idx + 1, +1);
+        gtag('event','lightbox_next');
+      };
+
+      const prev = () => {
+        setImg(idx - 1, -1);
+        gtag('event','lightbox_prev');
+      };
 
 
       imgs.forEach((img, i) => img.addEventListener('click', () => open(i)));
