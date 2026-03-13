@@ -21,12 +21,22 @@
   <link rel="stylesheet" href="/styles.css" />
 
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S45N192JX9"></script>
+  <!-- Google tag (gtag.js) -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-S45N192JX9');
+    if (window.location.hostname.includes("skipseywoodworking.com")) {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = "https://www.googletagmanager.com/gtag/js?id=G-S45N192JX9";
+      document.head.appendChild(script);
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);};
+      gtag('js', new Date());
+      gtag('config', 'G-S45N192JX9');
+    } else {
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){};
+    }
   </script>
 </head>
 
@@ -92,6 +102,7 @@
           action="/index.html?signedup=1">
 
           <input type="hidden" name="form-name" value="newsletter">
+          <input type="hidden" name="source" value="website">
           <p class="hidden">
             <label>Don’t fill this out <input name="bot-field"></label>
           </p>
