@@ -224,3 +224,13 @@ footer{color:var(--muted);font-size:var(--fs-small);margin:40px 0 20px}
   width: auto;
   border-radius: 0;
 }
+
+.signup-success{
+  background:#e8f5e9;
+  border:1px solid #2e7d32;
+  color:#1b5e20;
+  padding:12px 14px;
+  border-radius:6px;
+  margin-bottom:14px;
+  font-size:14px;
+}

@@ -95,6 +95,10 @@
         <h2>Not ready to order?</h2>
         <p class="muted">Get a quiet heads-up when Noah finishes the next regular batch.</p>
 
+        <div id="signup-success" class="signup-success" hidden>
+          Thanks — you're on the list. Check your inbox in a few minutes.
+        </div>
+
         <form name="newsletter"
           method="POST"
           data-netlify="true"
@@ -112,7 +116,7 @@
                   name="email"
                   placeholder="Your email address"
                   required>
-            <button type="submit" class="btn">Notify me</button>
+            <button type="submit" class="btn" id="newsletter-submit">Notify me</button>
           </div>
         </form>
       </section>
@@ -564,5 +568,28 @@
       }, {passive:true});
     })();
   </script>
+
+  <script>
+    if (window.location.search.includes("signedup=1")) {
+      const msg = document.getElementById("signup-success");
+      if (msg) {
+        msg.hidden = false;
+        msg.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }
+  </script>
+
+  <script>
+    const newsletterForm = document.querySelector("form[name='newsletter']");
+    const newsletterBtn = document.getElementById("newsletter-submit");
+
+    if (newsletterForm && newsletterBtn) {
+      newsletterForm.addEventListener("submit", function () {
+        newsletterBtn.disabled = true;
+        newsletterBtn.textContent = "Submitting...";
+      });
+    }
+  </script>
+
 </body>
 </html>
