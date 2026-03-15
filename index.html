@@ -95,6 +95,10 @@
         <h2>Not ready to order?</h2>
         <p class="muted">Get a quiet heads-up when Noah finishes the next regular batch.</p>
 
+        <div id="signup-success" class="signup-success" hidden>
+          Thanks — you're on the list. Check your inbox in a few minutes.
+        </div>
+
         <form name="newsletter"
           method="POST"
           data-netlify="true"
@@ -564,5 +568,16 @@
       }, {passive:true});
     })();
   </script>
+
+  <script>
+    if (window.location.search.includes("signedup=1")) {
+      const msg = document.getElementById("signup-success");
+      if (msg) {
+        msg.hidden = false;
+        msg.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }
+  </script>
+
 </body>
 </html>
