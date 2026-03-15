@@ -116,7 +116,7 @@
                   name="email"
                   placeholder="Your email address"
                   required>
-            <button type="submit" class="btn">Notify me</button>
+            <button type="submit" class="btn" id="newsletter-submit">Notify me</button>
           </div>
         </form>
       </section>
@@ -576,6 +576,18 @@
         msg.hidden = false;
         msg.scrollIntoView({ behavior: "smooth", block: "center" });
       }
+    }
+  </script>
+
+  <script>
+    const newsletterForm = document.querySelector("form[name='newsletter']");
+    const newsletterBtn = document.getElementById("newsletter-submit");
+
+    if (newsletterForm && newsletterBtn) {
+      newsletterForm.addEventListener("submit", function () {
+        newsletterBtn.disabled = true;
+        newsletterBtn.textContent = "Submitting...";
+      });
     }
   </script>
 
